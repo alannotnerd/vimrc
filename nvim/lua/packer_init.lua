@@ -101,13 +101,13 @@ return packer.startup(function(use)
 		end,
 	})
 
-  use {
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.0',
-    requires = {
-      'nvim-lua/plenary.nvim'
-    }
-  }
+	use({
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.0",
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
+	})
 
 	-- Statusline
 	use({
@@ -135,6 +135,15 @@ return packer.startup(function(use)
 		"goolord/alpha-nvim",
 		requires = { "kyazdani42/nvim-web-devicons" },
 	})
+
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	})
+
+	use("folke/lua-dev.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

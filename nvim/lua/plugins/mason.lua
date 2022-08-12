@@ -129,4 +129,7 @@ mason_lspconfig.setup_handlers({
 			},
 		})
 	end,
+  ["sumneko_lua"] = function()
+    lspconfig.sumneko_lua.setup(require("lua-dev"))
+  end
 })
