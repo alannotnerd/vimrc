@@ -79,20 +79,8 @@ return packer.startup(function(use)
 
 	-- LSP
 	use("neovim/nvim-lspconfig")
-	use({
-		"williamboman/mason.nvim",
-		config = function()
-			require("mason").setup()
-		end,
-	})
-	use({
-		"williamboman/mason-lspconfig.nvim",
-		config = function()
-			require("mason-lspconfig").setup({
-				ensure_installed = { "sumneko_lua", "rust_analyzer" },
-			})
-		end,
-	})
+	use("williamboman/mason.nvim")
+	use("williamboman/mason-lspconfig.nvim")
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		config = require("plugins.null-ls"),
