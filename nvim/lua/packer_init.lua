@@ -59,9 +59,11 @@ return packer.startup(function(use)
     },
     config = function ()
       local notify = require('notify');
+      local log = require('core.log')
       notify.setup()
       require('notify').setup()
-      require('core.log'):configure_notifications(notify)
+      log:get_logger()
+      log:configure_notifications(notify)
     end
   }
 
