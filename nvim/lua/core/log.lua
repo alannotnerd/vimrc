@@ -119,7 +119,7 @@ function Log:configure_notifications(notif_handle)
     },
     impl = notif_handle,
   })
-
+  self:get_logger()
   table.insert(self.__handle.sinks, sink)
 end
 

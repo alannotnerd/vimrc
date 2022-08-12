@@ -41,56 +41,19 @@ end
 
 -- Install plugins
 return packer.startup(function(use)
-	-- Add you plugins here:
 	use("wbthomason/packer.nvim") -- packer can manage itself
-
-	-- File explorer
 	use("kyazdani42/nvim-tree.lua")
-
-	-- Indent line
 	use("lukas-reineke/indent-blankline.nvim")
-
-  use("Tastyep/structlog.nvim")
-
-  use {
-    "rcarriga/nvim-notify",
-    requires = {
-      "Tastyep/structlog.nvim"
-    },
-    config = function ()
-      local notify = require('notify');
-      local log = require('core.log')
-      notify.setup()
-      require('notify').setup()
-      log:get_logger()
-      log:configure_notifications(notify)
-    end
-  }
-
-
-	-- Autopair
-	use({
-		"windwp/nvim-autopairs",
-		config = function()
-			require("nvim-autopairs").setup({})
-		end,
-	})
-
-	-- Icons
+	use("Tastyep/structlog.nvim")
+	use("rcarriga/nvim-notify")
+  use("windwp/nvim-autopairs") --TODO(alannotnerd): need to fix its innormal behavior.
 	use("kyazdani42/nvim-web-devicons")
-
-	-- Tag viewer
-	use("preservim/tagbar")
-
-	-- Treesitter interface
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
 			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
 	})
-
-	-- Color schemes
 	use("navarasu/onedark.nvim")
 	use("tanvirtin/monokai.nvim")
 	use({ "rose-pine/neovim", as = "rose-pine" })
@@ -162,7 +125,6 @@ return packer.startup(function(use)
 	})
 
 	use("folke/lua-dev.nvim")
-
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
