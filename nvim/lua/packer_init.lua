@@ -50,6 +50,22 @@ return packer.startup(function(use)
 	-- Indent line
 	use("lukas-reineke/indent-blankline.nvim")
 
+  use("Tastyep/structlog.nvim")
+
+  use {
+    "rcarriga/nvim-notify",
+    requires = {
+      "Tastyep/structlog.nvim"
+    },
+    config = function ()
+      local notify = require('notify');
+      notify.setup()
+      require('notify').setup()
+      require('core.log'):configure_notifications(notify)
+    end
+  }
+
+
 	-- Autopair
 	use({
 		"windwp/nvim-autopairs",
@@ -144,6 +160,7 @@ return packer.startup(function(use)
 	})
 
 	use("folke/lua-dev.nvim")
+
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

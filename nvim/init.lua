@@ -1,12 +1,12 @@
---[[
+config = {
+  name = "avim",
+  log = {
+    level = "DEBUG",
+    override_notity = true
+  },
+  use_icons = true
+}
 
-Neovim init file
-Maintainer: brainf+ck
-Website: https://github.com/brainfucksec/neovim-lua
-
---]]
-
--- Import Lua modules
 require("packer_init")
 
 require("core/options")
