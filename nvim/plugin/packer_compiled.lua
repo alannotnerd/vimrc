@@ -115,10 +115,28 @@ _G.packer_plugins = {
     path = "/home/alan/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  ["mason-lspconfig.nvim"] = {
+    config = { "\27LJ\2\n{\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\21ensure_installed\1\0\0\1\3\0\0\16sumneko_lua\18rust_analyzer\nsetup\20mason-lspconfig\frequire\0" },
+    loaded = true,
+    path = "/home/alan/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason.nvim"] = {
+    config = { "\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\nmason\frequire\0" },
+    loaded = true,
+    path = "/home/alan/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
   ["monokai.nvim"] = {
     loaded = true,
     path = "/home/alan/.local/share/nvim/site/pack/packer/start/monokai.nvim",
     url = "https://github.com/tanvirtin/monokai.nvim"
+  },
+  ["null-ls.nvim"] = {
+    config = { "\27LJ\2\n‡\1\0\0\a\2\6\0\0146\0\0\0009\0\1\0009\0\2\0009\0\3\0004\2\0\0B\0\2\2-\1\0\0009\1\4\1'\3\5\0\18\4\0\0+\5\0\0-\6\1\0B\1\5\1K\0\1\0\0À\1À\28textDocument/formatting\frequest\27make_formatting_params\tutil\blsp\bvim‡\1\0\0\a\2\6\0\0146\0\0\0009\0\1\0009\0\2\0009\0\3\0004\2\0\0B\0\2\2-\1\0\0009\1\4\1'\3\5\0\18\4\0\0+\5\0\0-\6\1\0B\1\5\1K\0\1\0\0À\1À\28textDocument/formatting\frequest\27make_formatting_params\tutil\blsp\bvim¶\2\1\2\b\0\20\0#9\2\0\0'\4\1\0B\2\2\2\15\0\2\0X\3\28€6\2\2\0009\2\3\0029\2\4\0025\4\5\0006\5\6\0=\5\a\4=\1\b\4B\2\2\0016\2\2\0009\2\3\0029\2\t\2'\4\n\0005\5\v\0006\6\6\0=\6\a\5=\1\b\0053\6\f\0=\6\r\5B\2\3\0016\2\2\0009\2\14\0029\2\15\2'\4\16\0'\5\17\0003\6\18\0005\a\19\0=\1\b\aB\2\5\0012\0\0€K\0\1\0\1\0\0\0\r<space>f\6n\bset\vkeymap\rcallback\0\1\0\0\16BufWritePre\24nvim_create_autocmd\vbuffer\ngroup\faugroup\1\0\0\24nvim_clear_autocmds\bapi\bvim\28textDocument/formatting\20supports_methodò\1\1\0\a\0\14\0 6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0003\3\3\0=\3\5\0024\3\4\0006\4\0\0'\6\1\0B\4\2\0029\4\6\0049\4\a\0049\4\b\4>\4\1\0036\4\0\0'\6\1\0B\4\2\0029\4\6\0049\4\t\0049\4\n\4>\4\2\0036\4\0\0'\6\1\0B\4\2\0029\4\6\0049\4\v\0049\4\f\4>\4\3\3=\3\r\2B\0\2\1K\0\1\0\fsources\nspell\15completion\veslint\16diagnostics\vstylua\15formatting\rbuiltins\14on_attach\1\0\0\0\nsetup\fnull-ls\frequire\0" },
+    loaded = true,
+    path = "/home/alan/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-autopairs"] = {
     config = { "\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0" },
@@ -127,6 +145,7 @@ _G.packer_plugins = {
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
+    config = { "\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21plugins.nvim-cmp\frequire\0" },
     loaded = true,
     path = "/home/alan/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
@@ -183,10 +202,26 @@ time([[Defining packer_plugins]], false)
 time([[Config for nvim-autopairs]], true)
 try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
 time([[Config for nvim-autopairs]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+try_loadstring("\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21plugins.nvim-cmp\frequire\0", "config", "nvim-cmp")
+time([[Config for nvim-cmp]], false)
+-- Config for: null-ls.nvim
+time([[Config for null-ls.nvim]], true)
+try_loadstring("\27LJ\2\n‡\1\0\0\a\2\6\0\0146\0\0\0009\0\1\0009\0\2\0009\0\3\0004\2\0\0B\0\2\2-\1\0\0009\1\4\1'\3\5\0\18\4\0\0+\5\0\0-\6\1\0B\1\5\1K\0\1\0\0À\1À\28textDocument/formatting\frequest\27make_formatting_params\tutil\blsp\bvim‡\1\0\0\a\2\6\0\0146\0\0\0009\0\1\0009\0\2\0009\0\3\0004\2\0\0B\0\2\2-\1\0\0009\1\4\1'\3\5\0\18\4\0\0+\5\0\0-\6\1\0B\1\5\1K\0\1\0\0À\1À\28textDocument/formatting\frequest\27make_formatting_params\tutil\blsp\bvim¶\2\1\2\b\0\20\0#9\2\0\0'\4\1\0B\2\2\2\15\0\2\0X\3\28€6\2\2\0009\2\3\0029\2\4\0025\4\5\0006\5\6\0=\5\a\4=\1\b\4B\2\2\0016\2\2\0009\2\3\0029\2\t\2'\4\n\0005\5\v\0006\6\6\0=\6\a\5=\1\b\0053\6\f\0=\6\r\5B\2\3\0016\2\2\0009\2\14\0029\2\15\2'\4\16\0'\5\17\0003\6\18\0005\a\19\0=\1\b\aB\2\5\0012\0\0€K\0\1\0\1\0\0\0\r<space>f\6n\bset\vkeymap\rcallback\0\1\0\0\16BufWritePre\24nvim_create_autocmd\vbuffer\ngroup\faugroup\1\0\0\24nvim_clear_autocmds\bapi\bvim\28textDocument/formatting\20supports_methodò\1\1\0\a\0\14\0 6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0003\3\3\0=\3\5\0024\3\4\0006\4\0\0'\6\1\0B\4\2\0029\4\6\0049\4\a\0049\4\b\4>\4\1\0036\4\0\0'\6\1\0B\4\2\0029\4\6\0049\4\t\0049\4\n\4>\4\2\0036\4\0\0'\6\1\0B\4\2\0029\4\6\0049\4\v\0049\4\f\4>\4\3\3=\3\r\2B\0\2\1K\0\1\0\fsources\nspell\15completion\veslint\16diagnostics\vstylua\15formatting\rbuiltins\14on_attach\1\0\0\0\nsetup\fnull-ls\frequire\0", "config", "null-ls.nvim")
+time([[Config for null-ls.nvim]], false)
+-- Config for: mason.nvim
+time([[Config for mason.nvim]], true)
+try_loadstring("\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\nmason\frequire\0", "config", "mason.nvim")
+time([[Config for mason.nvim]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
+-- Config for: mason-lspconfig.nvim
+time([[Config for mason-lspconfig.nvim]], true)
+try_loadstring("\27LJ\2\n{\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\21ensure_installed\1\0\0\1\3\0\0\16sumneko_lua\18rust_analyzer\nsetup\20mason-lspconfig\frequire\0", "config", "mason-lspconfig.nvim")
+time([[Config for mason-lspconfig.nvim]], false)
 if should_profile then save_profiles() end
 
 end)
