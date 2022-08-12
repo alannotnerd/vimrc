@@ -22,31 +22,29 @@ map('', '<up>', '<nop>')
 map('', '<down>', '<nop>')
 map('', '<left>', '<nop>')
 map('', '<right>', '<nop>')
-map('', '<C-v>', '<nop>')
 
 -- Map Esc to kk
 map('i', 'jk', '<Esc>')
 
--- Clear search highlighting with <leader> and c
-map('n', '<leader>c', ':nohl<CR>')
-
 -- Toggle auto-indenting for code paste
-map('n', '<leader>tp', ':set invpaste paste?<CR>')
--- vim.opt.pastetoggle = '<leader>tp'
-
--- Change split orientation
-map('n', '<leader>tk', '<C-w>t<C-w>K') -- change vertical to horizontal
-map('n', '<leader>th', '<C-w>t<C-w>H') -- change horizontal to vertical
+map('n', '<F2>', ':set invpaste paste?<CR>')
+vim.opt.pastetoggle = '<F2>'
 
 -- Reload configuration without restart nvim
-map('n', '<S-<leader>>', ':so %<CR>')
+map('n', '<leader>r', ':so %<CR>')
 
 -----------------------------------------------------------
 -- Applications and Plugins shortcuts
 -----------------------------------------------------------
 
+-- Terminal mappings
+map('n', '<C-t>', ':Term<CR>', { noremap = true })  -- open
+map('t', '<Esc>', '<C-\\><C-n>')                    -- exit
+
 -- NvimTree
 map('n', '<C-e>', ':NvimTreeToggle<CR>')            -- open/close
+map('n', '<leader>f', ':NvimTreeRefresh<CR>')       -- refresh
+map('n', '<leader>n', ':NvimTreeFindFile<CR>')      -- search file
 
 -- Tagbar
 map('n', '<leader>z', ':TagbarToggle<CR>')          -- open/close

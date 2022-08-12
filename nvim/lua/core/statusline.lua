@@ -54,7 +54,7 @@ local comps = {
   vi_mode = {
     left = {
       provider = function()
-        return ' ' 
+        return ' '
       end,
       hl = function()
         local set_color = {
@@ -113,7 +113,7 @@ local comps = {
         else
           icon = '  '
         end
-        return icon .. os
+        return icon
       end,
       hl = { fg = colors.fg },
       left_sep = {

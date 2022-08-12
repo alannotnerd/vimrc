@@ -34,8 +34,8 @@ nvim_tree.setup {
   sync_root_with_cwd = false,
   reload_on_bufenter = false,
   respect_buf_cwd = false,
-  on_attach = 'disable', -- function(bufnr). If nil, will use the deprecated mapping strategy
-  remove_keymaps = true, -- boolean (disable totally or not) or list of key (lhs)
+  on_attach = "disable", -- function(bufnr). If nil, will use the deprecated mapping strategy
+  remove_keymaps = false, -- boolean (disable totally or not) or list of key (lhs)
   view = {
     adaptive_size = false,
     centralize_selection = false,
@@ -58,20 +58,6 @@ nvim_tree.setup {
       col = 1,
       },
     },
-    mappings = {
-      list = {
-        { key = {'e', 'o' }, action = 'edit' },
-        { key = 'E', action = 'vsplit' },
-        { key = 'yy', action = 'copy' },
-        { key = 'p', action = 'paste'},
-        { key = 'R', action = 'refresh' },
-        { key = 'r', action = 'rename' },
-        { key = '<BS>', action = 'dir_up' },
-        { key = '<CR>', action = 'cd' },
-        { key = 'g?', action = 'toggle_help' },
-        { key = 'a', action = 'create' }
-      }
-    }
   },
   renderer = {
     add_trailing = false,
