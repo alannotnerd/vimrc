@@ -1,10 +1,10 @@
 _G.config = {
-  name = "avim",
-  log = {
-    level = "DEBUG",
-    override_notity = true
-  },
-  use_icons = true
+	name = "avim",
+	log = {
+		level = "DEBUG",
+		override_notity = true,
+	},
+	use_icons = true,
 }
 
 require("core/options")
@@ -14,11 +14,11 @@ require("core/colors")
 require("core/boostrap")
 require("core/ui")
 require("core/lsp").setup()
+require("core.explorer").setup()
 
 require("plugins/nvim-cmp")
-require("plugins/nvim-tree")
 require("plugins/indent-blankline")
 require("plugins/nvim-treesitter")
 require("plugins/alpha-nvim")
 
-require('plugins/telescope').setup()
+require("plugins/telescope").setup()
