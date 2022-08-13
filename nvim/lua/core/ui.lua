@@ -1,23 +1,8 @@
-----------------------------------------------------------
--- Statusline configuration file
------------------------------------------------------------
-
--- Plugin: feline.nvim
--- url: https://github.com/feline-nvim/feline.nvim
-
--- For the configuration see the Usage section:
--- https://github.com/feline-nvim/feline.nvim/blob/master/USAGE.md
-
--- Thanks to ibhagwan for the example to follow:
--- https://github.com/ibhagwan/nvim-lua
-
-local status_ok, feline = pcall(require, 'feline')
-if not status_ok then
-  return
-end
+local feline = require('feline')
+local bufferline = require('bufferline')
 
 -- Set colorscheme (from core/colors.lua/colorscheme_name)
-local colors = require('core/colors').onedark_dark
+local colors = require('core/colors').monokai
 
 local vi_mode_colors = {
   NORMAL = colors.cyan,
@@ -271,3 +256,5 @@ feline.setup {
     bufnames = {},
   },
 }
+
+bufferline.setup {}

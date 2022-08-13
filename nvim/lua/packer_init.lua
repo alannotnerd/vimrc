@@ -46,7 +46,7 @@ return packer.startup(function(use)
 	use("lukas-reineke/indent-blankline.nvim")
 	use("Tastyep/structlog.nvim")
 	use("rcarriga/nvim-notify")
-  use("windwp/nvim-autopairs") --TODO(alannotnerd): need to fix its innormal behavior.
+	use("windwp/nvim-autopairs") --TODO(alannotnerd): need to fix its innormal behavior.
 	use("kyazdani42/nvim-web-devicons")
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -76,24 +76,15 @@ return packer.startup(function(use)
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-buffer",
 			"saadparwaiz1/cmp_luasnip",
-		}
-	})
-
-	use({
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.0",
-		requires = {
-			"nvim-lua/plenary.nvim",
+			"hrsh7th/cmp-calc",
 		},
 	})
-	use({
-		"feline-nvim/feline.nvim",
-		requires = { "kyazdani42/nvim-web-devicons" },
-	})
-	use({
-		"goolord/alpha-nvim",
-		requires = { "kyazdani42/nvim-web-devicons" },
-	})
+
+	use({ "nvim-telescope/telescope.nvim", tag = "0.1.0", requires = { "nvim-lua/plenary.nvim" } })
+	use({ "feline-nvim/feline.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
+	use({ "goolord/alpha-nvim", requires = { "kyazdani42/nvim-web-devicons" } })
+	use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
+
 	use({
 		"numToStr/Comment.nvim",
 		config = function()

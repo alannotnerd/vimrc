@@ -1,4 +1,4 @@
-config = {
+_G.config = {
   name = "avim",
   log = {
     level = "DEBUG",
@@ -11,16 +11,14 @@ require("core/options")
 require("core/autocmds")
 require("core/keymaps")
 require("core/colors")
+require("core/boostrap")
+require("core/ui")
+require("core/lsp").setup()
 
-require("boostrap")
-
-require("core/statusline")
-require("core.lsp").setup()
-require("plugins.nvim-cmp")
+require("plugins/nvim-cmp")
 require("plugins/nvim-tree")
 require("plugins/indent-blankline")
 require("plugins/nvim-treesitter")
 require("plugins/alpha-nvim")
 
 require('plugins/telescope').setup()
-
