@@ -22,16 +22,7 @@ local vi_mode_colors = {
 }
 
 -- Providers (LSP, vi_mode)
-local lsp = require("feline.providers.lsp")
 local vi_mode_utils = require("feline.providers.vi_mode")
-
--- LSP diagnostic
-local lsp_get_diag = function(str)
-  local count = vim.diagnostic.get_count(0, str)
-  return (count > 0) and " " .. count .. " " or ""
-end
-
-local separator = "|"
 
 -- My components
 local comps = {
@@ -70,19 +61,22 @@ local comps = {
     type = {
       provider = function()
         local type = vim.bo.filetype:lower()
-        local extension = vim.fn.expand("%:e")
+        local extension = vim.fn.expand("%:e") ---@diagnostic disable-line
         local icon = require("nvim-web-devicons").get_icon(extension)
         if icon == nil then
           icon = " "
         end
-        return " " .. icon .. " " .. type
+        return " " .. icon .. " " .. type .. " "
       end,
-      hl = { fg = colors.fg },
-      left_sep = {
-        str = " " .. separator,
-        hl = { fg = colors.fg },
-      },
-      righ_sep = " ",
+      hl = function()
+        local set_color = {
+          name = vi_mode_utils.get_mode_highlight_name(),
+          fg = colors.bg,
+          bg = vi_mode_utils.get_mode_color(),
+          style = "bold",
+        }
+        return set_color
+      end
     },
     -- Line-column
     position = {
@@ -184,6 +178,9 @@ local components = {
     }
   },
   inactive = {
+    {
+      comps.vi_mode.left,
+    }
   },
 }
 

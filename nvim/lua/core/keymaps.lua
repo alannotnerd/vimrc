@@ -3,11 +3,11 @@
 -----------------------------------------------------------
 
 local function map(mode, lhs, rhs, opts)
-	local options = { noremap = true, silent = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts) ---@diagnostic disable-line
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options) ---@diagnostic disable-line
 end
 
 -- Change leader to a comma
@@ -45,5 +45,5 @@ map("t", "<Esc>", "<C-\\><C-n>") -- exit
 map("n", "<C-e>", ":NvimTreeToggle<CR>") -- open/close
 
 vim.keymap.set("n", "<leader>f", function()
-  vim.lsp.buf.formatting_sync()
+  vim.lsp.buf.formatting_sync() ---@diagnostic disable-line
 end)
