@@ -76,10 +76,7 @@ return packer.startup(function(use)
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-buffer",
 			"saadparwaiz1/cmp_luasnip",
-		},
-		config = function()
-			require("plugins.nvim-cmp")
-		end,
+		}
 	})
 
 	use({
@@ -89,13 +86,21 @@ return packer.startup(function(use)
 			"nvim-lua/plenary.nvim",
 		},
 	})
-
-	-- Statusline
 	use({
 		"feline-nvim/feline.nvim",
 		requires = { "kyazdani42/nvim-web-devicons" },
 	})
-
+	use({
+		"goolord/alpha-nvim",
+		requires = { "kyazdani42/nvim-web-devicons" },
+	})
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	})
+	use("folke/lua-dev.nvim")
 	-- git labels
 	use({
 		"lewis6991/gitsigns.nvim",
@@ -110,22 +115,6 @@ return packer.startup(function(use)
 			require("nvim-surround").setup()
 		end,
 	})
-
-	-- Dashboard (start screen)
-	use({
-		"goolord/alpha-nvim",
-		requires = { "kyazdani42/nvim-web-devicons" },
-	})
-
-	use({
-		"numToStr/Comment.nvim",
-		config = function()
-			require("Comment").setup()
-		end,
-	})
-
-	use("folke/lua-dev.nvim")
-
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then

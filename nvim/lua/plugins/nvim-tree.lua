@@ -10,6 +10,7 @@
 
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
+  Log:error("Load nvim tree failed")
 	return
 end
 
@@ -73,6 +74,7 @@ nvim_tree.setup({
 				{ key = "gg", action = "toggle_git_ignored" },
 				{ key = "g.", action = "toggle_dotfiles" },
 				{ key = "q", action = "close" },
+				{ key = "p", action = "paste" },
 			},
 		},
 	},

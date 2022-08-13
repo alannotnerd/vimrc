@@ -31,7 +31,7 @@ map("n", "<F2>", ":set invpaste paste?<CR>")
 vim.opt.pastetoggle = "<F2>"
 
 -- Reload configuration without restart nvim
-map("n", "<leader>r", ":so %<CR>")
+map("n", "<leader>ar", ":so %<CR>")
 
 -----------------------------------------------------------
 -- Applications and Plugins shortcuts
@@ -44,9 +44,6 @@ map("t", "<Esc>", "<C-\\><C-n>") -- exit
 -- NvimTree
 map("n", "<C-e>", ":NvimTreeToggle<CR>") -- open/close
 
--- Tagbar
-map("n", "<leader>z", ":TagbarToggle<CR>") -- open/close
-
-vim.keymap.set("n", "<space>f", function()
+vim.keymap.set("n", "<leader>f", function()
   vim.lsp.buf.formatting_sync()
 end)
