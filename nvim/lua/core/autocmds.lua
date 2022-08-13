@@ -18,7 +18,6 @@ autocmd("TextYankPost", {
 })
 
 autocmd("BufWritePre", {
-	pattern = { "rust" },
 	callback = function()
 		vim.lsp.buf.formatting_sync()
 	end,
