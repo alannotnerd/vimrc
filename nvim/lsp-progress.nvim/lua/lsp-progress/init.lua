@@ -4,61 +4,63 @@ M.options = {
   messages = {
     commenced = "Loading workspace",
     completed = "Finish"
-
   }
 }
+
+function M.update_progress(self, client, trace_id, msg)
+  local handlers = {
+    ["begin"] = function()
+      -- msg.title
+      local record = vim.notify(msg.title or self.options.messages.commenced, vim.log.levels.INFO, {
+        title = client.name,
+        timeout = 1000,
+        keep = function()
+          return client.progresses[trace_id] ~= nil
+        end
+      })
+      client.progresses[trace_id] = record and record.id
+    end,
+    ["report"] = function()
+      local record = vim.notify(msg.message, vim.log.levels.INFO, {
+        replace = client.progresses[trace_id]
+      })
+      client.progresses[trace_id] = record and record.id
+    end,
+    ["end"] = function()
+      client.progresses[trace_id] = nil
+    end
+  }
+  handlers[msg.kind]()
+end
+
+function M.get_client(self, client_id)
+  local client_key = tostring(client_id)
+  self.clients = self.clients or {}
+  self.clients[client_key] = self.clients[client_key] or {
+    progresses = {},
+    name = vim.lsp.get_client_by_id(client_id).name
+  }
+  return self.clients[client_key]
+end
 
 function M.register_process(self)
   self.clients = {}
 
-  self.progress_callback = function(_, msg, info)
-    local client_key = tostring(info.client_id)
-    local key = msg.token
-    local val = msg.value
+  local progress_callback = function(_, msg, info)
+    local client_id = info.client_id
+    local trace_id = msg.token
+    local data = msg.value
 
-    if not client_key then
+    if not client_id or not data then
       return
     end
 
-    if self.clients[client_key] == nil then
-      self.clients[client_key] = {
-        progresses = {},
-        name = { name = vim.lsp.get_client_by_id(info.client_id).name }
-      }
-    end
-
-    local progresses = self.clients[client_key].progresses
-
-    if val then
-      if val.kind == 'begin' then
-        local record = vim.notify(self.options.messages.commenced, vim.log.levels.INFO, {
-          title = val.title,
-          timeout = false,
-        })
-        progresses[key] = record and record.id
-      end
-
-      if val.kind == 'report' then
-        local record = vim.notify(val.message, vim.log.levels.INFO, {
-          replace = progresses[key]
-        })
-        progresses[key] = record and record.id
-      end
-
-      if val.kind == 'end' then
-        vim.notify(self.options.messages.completed, vim.log.levels.INFO, {
-          timeout = 1000,
-          replace = progresses[key],
-          on_close = function()
-            progresses[key] = nil
-          end
-        })
-      end
-    end
+    local client = self:get_client(client_id);
+    self:update_progress(client, trace_id, data)
   end
 
   vim.lsp.handlers["$/progress"] = function(err, msg, info, _)
-    self.progress_callback(err, msg, info)
+    progress_callback(err, msg, info)
   end
 end
 
