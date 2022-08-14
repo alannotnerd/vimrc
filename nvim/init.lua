@@ -1,10 +1,10 @@
 _G.config = {
-	name = "avim",
-	log = {
-		level = "DEBUG",
-		override_notity = true,
-	},
-	use_icons = true,
+  name = "avim",
+  log = {
+    level = "DEBUG",
+    override_notify = true,
+  },
+  use_icons = true,
 }
 
 require("core/options")

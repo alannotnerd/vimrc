@@ -31,7 +31,7 @@ function Log:init()
             structlog.processors.StackWriter({ "line", "file" }, { max_parents = 0, stack_level = 2 }),
             structlog.processors.Timestamper "%H:%M:%S",
           },
-          formatter = structlog.formatters.FormatColorizer( --
+          formatter = structlog.formatters.FormatColorizer(--
             "%s [%-5s] %s: %-30s",
             { "timestamp", "level", "logger_name", "msg" },
             { level = structlog.formatters.FormatColorizer.color_level() }
@@ -43,7 +43,7 @@ function Log:init()
             structlog.processors.StackWriter({ "line", "file" }, { max_parents = 3, stack_level = 2 }),
             structlog.processors.Timestamper "%H:%M:%S",
           },
-          formatter = structlog.formatters.Format( --
+          formatter = structlog.formatters.Format(--
             "%s [%-5s] %s: %-30s",
             { "timestamp", "level", "logger_name", "msg" }
           ),
@@ -54,26 +54,6 @@ function Log:init()
 
   structlog.configure(log_conf)
   local logger = structlog.get_logger(config.name)
-
-  -- Overwrite `vim.notify` to use the logger
-  if config.log.override_notify then
-    vim.notify = function(msg, vim_log_level, opts)
-      notify_opts = opts or {}
-
-      -- vim_log_level can be omitted
-      if vim_log_level == nil then
-        vim_log_level = Log.levels["INFO"]
-      elseif type(vim_log_level) == "string" then
-        vim_log_level = Log.levels[(vim_log_level):upper()] or Log.levels["INFO"]
-      else
-        -- https://github.com/neovim/neovim/blob/685cf398130c61c158401b992a1893c2405cd7d2/runtime/lua/vim/lsp/log.lua#L5
-        vim_log_level = vim_log_level + 1
-      end
-
-      logger:log(vim_log_level, msg)
-    end
-  end
-
   return logger
 end
 
@@ -103,7 +83,7 @@ function Log:configure_notifications(notif_handle)
       default_namer,
       notify_opts_injecter,
     },
-    formatter = structlog.formatters.Format( --
+    formatter = structlog.formatters.Format(--
       "%s",
       { "msg" },
       { blacklist_all = true }
