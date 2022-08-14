@@ -31,7 +31,7 @@ function M.register_process(self)
 
     if val then
       if val.kind == 'begin' then
-        local record = vim.notify(key .. ":" .. self.options.messages.commenced, vim.log.levels.INFO, {
+        local record = vim.notify(self.options.messages.commenced, vim.log.levels.INFO, {
           title = val.title,
           timeout = false,
         })
@@ -39,7 +39,7 @@ function M.register_process(self)
       end
 
       if val.kind == 'report' then
-        local record = vim.notify(key .. ":" .. val.message, vim.log.levels.INFO, {
+        local record = vim.notify(val.message, vim.log.levels.INFO, {
           replace = progresses[key]
         })
         progresses[key] = record and record.id
