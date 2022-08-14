@@ -14,32 +14,59 @@ function M.update_progress(self, client, trace_id, msg)
     ["begin"] = function()
       local record = vim.notify(msg.message or self.options.messages.commenced, vim.log.levels.INFO, {
         title = msg.title,
-        timeout = 1000,
+        timeout = 0,
         keep = function()
-          return client.progresses[trace_id] ~= nil
+          return self:get_progress_record_id(client, trace_id) ~= nil
         end,
-        replace = client.progresses[trace_id],
+        replace = self:get_progress_record_id(client, trace_id)
       })
-      client.progresses[trace_id] = record and record.id
+      self:set_progress_record_id(client, trace_id, record.id)
     end,
     ["report"] = function()
       local record = vim.notify(msg.message, vim.log.levels.INFO, {
-        replace = client.progresses[trace_id]
+        replace = self:get_progress_record_id(client, trace_id)
       })
-      client.progresses[trace_id] = record and record.id
+      self:set_progress_record_id(client, trace_id, record.id)
     end,
     ["end"] = function()
-      -- vim.defer_fn(function()
-      -- client.progresses[trace_id] = nil
-      -- end, 1000)
+      self:clear_progress_record_id(client, trace_id)
     end
   }
   handlers[msg.kind]()
 end
 
--- function M.set_progress_record_id(self, client, trace_id, record_id)
---
--- end
+function M.set_progress_record_id(self, client, trace_id, record_id)
+  local progresses_info = client.progresses[trace_id]
+  if progresses_info and progresses_info.timer then
+    progresses_info.timer:stop()
+  end
+
+  client.progresses[trace_id] = {
+    timer = nil,
+    value = record_id,
+  }
+end
+
+function M.clear_progress_record_id(self, client, trace_id)
+  local progresses_info = client.progresses[trace_id]
+  if progresses_info == nil or progresses_info.timer ~= nil then
+    return
+  end
+
+  local timer = vim.defer_fn(function()
+    client.progresses[trace_id] = nil
+  end, 1000)
+  client.progresses[trace_id].timer = timer
+end
+
+function M.get_progress_record_id(self, client, trace_id)
+  local progresses_info = client.progresses[trace_id]
+  if not progresses_info then
+    return nil
+  end
+
+  return progresses_info.value
+end
 
 function M.get_client(self, client_id)
   self.clients[client_id] = self.clients[client_id] or {
