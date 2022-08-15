@@ -23,7 +23,6 @@ map("", "<down>", "<nop>")
 map("", "<left>", "<nop>")
 map("", "<right>", "<nop>")
 
--- Map Esc to kk
 map("i", "jk", "<Esc>")
 
 -- Toggle auto-indenting for code paste
@@ -33,16 +32,15 @@ vim.opt.pastetoggle = "<F2>"
 -- Reload configuration without restart nvim
 map("n", "<leader>ar", ":so %<CR>")
 
------------------------------------------------------------
--- Applications and Plugins shortcuts
------------------------------------------------------------
-
--- Terminal mappings
 map("n", "<C-t>", ":Term<CR>", { noremap = true }) -- open
 map("t", "<Esc>", "<C-\\><C-n>") -- exit
 
 -- NvimTree
 map("n", "<C-e>", ":NvimTreeToggle<CR>") -- open/close
+
+-- Quickfix jumping
+map("", "<C-j>", ":cn<CR>")
+map("", "<C-k>", ":cp<CR>")
 
 vim.keymap.set("n", "<leader>f", function()
   vim.lsp.buf.formatting_sync() ---@diagnostic disable-line
