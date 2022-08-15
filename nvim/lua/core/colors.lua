@@ -1,7 +1,9 @@
-require('monokai').setup {
+require('onedark').setup {
   style = 'darker',
   colors = { fg = '#b2bbcc' }, --default: #a0a8b7
 }
+
+require('onedark').load()
 
 -- statusline color schemes:
 -- import with: require('colors').colorscheme_name
