@@ -106,6 +106,7 @@ return packer.startup(function(use)
       require("nvim-surround").setup()
     end,
   })
+  use { 'stevearc/dressing.nvim' }
 
   use {
     '~/.config/nvim/lsp-progress.nvim',
