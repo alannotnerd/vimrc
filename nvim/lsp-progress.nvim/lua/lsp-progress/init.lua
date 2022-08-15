@@ -1,3 +1,5 @@
+local render = require("lsp-progress.render")
+
 local M = {}
 
 M.clients = {}
@@ -9,6 +11,7 @@ M.options = {
   }
 }
 
+
 function M.update_progress(self, client_id, trace_id, msg)
   local client = self:get_client(client_id)
   local handlers = {
@@ -16,6 +19,7 @@ function M.update_progress(self, client_id, trace_id, msg)
       local record = vim.notify(msg.message or self.options.messages.commenced, vim.log.levels.INFO, {
         title = msg.title,
         timeout = 1000,
+        render = render.custom_render,
         keep = function()
           return client.progresses[trace_id] ~= nil
         end,
