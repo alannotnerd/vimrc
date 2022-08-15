@@ -17,6 +17,4 @@ local notify = require('notify')
 vim.notify = notify.notify
 
 Log:configure_notifications(notify.notify)
-Log:info("Logger initialized")
-
 _G.Log = Log
