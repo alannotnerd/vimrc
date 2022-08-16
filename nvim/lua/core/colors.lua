@@ -1,16 +1,5 @@
-require('onedark').setup {
-  style = 'darker',
-  colors = { fg = '#b2bbcc' }, --default: #a0a8b7
-}
-
-require('onedark').load()
-
--- statusline color schemes:
--- import with: require('colors').colorscheme_name
 local M = {}
 
--- Theme: OneDark (dark)
--- Colors: https://github.com/navarasu/onedark.nvim/blob/master/lua/onedark/palette.lua
 M.onedark_dark = {
   bg = '#282c34',
   fg = '#b2bbcc',
