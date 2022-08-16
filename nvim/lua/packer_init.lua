@@ -102,7 +102,7 @@ return packer.startup(function(use)
     end,
   })
   use { 'stevearc/dressing.nvim' }
-  use { '/home/alan/github.com/alannotnerd/lsp-progress.nvim' }
+  use { config_dir('/lsp-progress.nvim') }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
