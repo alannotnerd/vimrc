@@ -1,8 +1,6 @@
 local feline = require("feline")
 local bufferline = require("bufferline")
-
--- Set colorscheme (from core/colors.lua/colorscheme_name)
-local colors = require("core/colors").monokai
+local colors = require("core.ui.colors")
 
 local vi_mode_colors = {
   NORMAL = colors.cyan,
@@ -205,5 +203,6 @@ feline.setup({
     bufnames = {},
   },
 })
-
 bufferline.setup({})
+
+vim.cmd("colorscheme " .. config.colorscheme)

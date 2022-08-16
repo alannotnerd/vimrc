@@ -36,7 +36,7 @@ function M.setup()
     defaults = {
       mappings = {
         i = {
-          ["<CR>"] = actions.select_default + actions.send_to_qflist,
+          ["<CR>"] = actions.send_to_qflist,
           ["<M-q>"] = actions.send_selected_to_qflist,
         },
         n = {

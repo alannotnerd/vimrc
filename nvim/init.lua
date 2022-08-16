@@ -5,6 +5,7 @@ _G.config = {
     override_notify = true,
   },
   use_icons = true,
+  colorscheme = 'monokai'
 }
 
 require("core/boostrap")
@@ -12,7 +13,6 @@ require("core/options")
 require("core/autocmds")
 require("core/keymaps")
 require("core/ui")
-require("core/colors")
 require("core/lsp").setup()
 require("core.explorer").setup()
 
@@ -23,5 +23,3 @@ require("plugins/alpha-nvim")
 
 require("plugins/telescope").setup()
 require("lsp-progress").setup()
-
-vim.api.nvim_command('colorscheme monokai')
