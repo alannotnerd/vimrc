@@ -1,6 +1,6 @@
 local feline = require("feline")
 local bufferline = require("bufferline")
-local colors = require("core.ui.colors")
+local colors = require("core.ui.colors")[config.colorscheme]
 
 local vi_mode_colors = {
   NORMAL = colors.cyan,

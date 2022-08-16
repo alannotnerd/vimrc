@@ -4,7 +4,6 @@ local telescope = require("telescope")
 local builtin = require("telescope.builtin")
 local themes = require('telescope.themes')
 local actions = require('telescope.actions')
-require('telescope.mappings')
 
 function M.setup_keymapping()
   local mappings = {
@@ -33,18 +32,6 @@ end
 function M.setup()
   M.setup_keymapping()
   telescope.setup({
-    defaults = {
-      mappings = {
-        i = {
-          ["<CR>"] = actions.send_to_qflist,
-          ["<M-q>"] = actions.send_selected_to_qflist,
-        },
-        n = {
-          ["<C-q>"] = actions.send_to_qflist,
-          ["<M-q>"] = actions.send_selected_to_qflist,
-        }
-      }
-    }
   })
 end
 

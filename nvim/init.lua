@@ -5,7 +5,7 @@ _G.config = {
     override_notify = true,
   },
   use_icons = true,
-  colorscheme = 'monokai'
+  colorscheme = 'onedark'
 }
 
 require("core/boostrap")

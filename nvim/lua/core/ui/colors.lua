@@ -5,30 +5,6 @@ require('onedark').setup({
   colors = { fg = '#b2bbcc' }
 })
 
-M.onedark = {
-  bg = '#282c34',
-  fg = '#b2bbcc',
-  pink = '#c678dd',
-  green = '#98c379',
-  cyan = '#56b6c2',
-  yellow = '#e5c07b',
-  orange = '#d19a66',
-  red = '#e86671',
-}
-
--- Theme: Monokai (classic)
--- Colors: https://github.com/tanvirtin/monokai.nvim/blob/master/lua/monokai.lua
-M.monokai = {
-  bg = '#202328', --default: #272a30
-  fg = '#f8f8f0',
-  pink = '#f92672',
-  green = '#a6e22e',
-  cyan = '#66d9ef',
-  yellow = '#e6db74',
-  orange = '#fd971f',
-  red = '#e95678',
-}
-
 -- Theme: Rosé Pine (main)
 -- Colors: https://github.com/rose-pine/neovim/blob/main/lua/rose-pine/palette.lua
 -- color names are adapted to the formats above
@@ -43,4 +19,41 @@ M.rose_pine = {
   red = '#ebbcba',
 }
 
-return M[config.colorscheme]
+local monokai_schema_mapping = function(subtype)
+  local monokai = require("monokai")
+  return {
+    bg = monokai[subtype].base1, --default: #211a22
+    fg = monokai[subtype].white,
+    pink = monokai[subtype].pink,
+    green = monokai[subtype].green,
+    cyan = monokai[subtype].aqua,
+    yellow = monokai[subtype].yellow,
+    orange = monokai[subtype].orange,
+    red = monokai[subtype].orange,
+  }
+end
+
+M.__index = function(_, key)
+  if key == 'monokai_pro' then
+    return monokai_schema_mapping("pro")
+  elseif key == 'monokai' then
+    return monokai_schema_mapping("classic")
+  elseif key == 'monokai_soda' then
+    return monokai_schema_mapping("soda")
+  elseif key == 'onedark' then
+    return {
+      bg = '#282c34',
+      fg = '#b2bbcc',
+      pink = '#c678dd',
+      green = '#98c379',
+      cyan = '#56b6c2',
+      yellow = '#e5c07b',
+      orange = '#d19a66',
+      red = '#e86671',
+    }
+  else
+    Log:error("No such color scheme")
+  end
+end
+
+return setmetatable({}, M)
