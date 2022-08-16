@@ -54,6 +54,8 @@ return packer.startup(function(use)
       require("nvim-treesitter.install").update({ with_sync = true })
     end,
   })
+
+  -- ColorSchema
   use("navarasu/onedark.nvim")
   use("tanvirtin/monokai.nvim")
   use({ "rose-pine/neovim", as = "rose-pine" })
@@ -62,12 +64,6 @@ return packer.startup(function(use)
   use("neovim/nvim-lspconfig")
   use("williamboman/mason.nvim")
   use("williamboman/mason-lspconfig.nvim")
-  use({
-    "jose-elias-alvarez/null-ls.nvim",
-    config = require("plugins.null-ls"),
-  })
-
-  -- Autocomplete
   use({
     "hrsh7th/nvim-cmp",
     requires = {
@@ -92,7 +88,6 @@ return packer.startup(function(use)
     end,
   })
   use("folke/lua-dev.nvim")
-  -- git labels
   use({
     "lewis6991/gitsigns.nvim",
     requires = { "nvim-lua/plenary.nvim" },
@@ -107,13 +102,8 @@ return packer.startup(function(use)
     end,
   })
   use { 'stevearc/dressing.nvim' }
+  use { '/home/alan/github.com/alannotnerd/lsp-progress.nvim' }
 
-  use {
-    '~/.config/nvim/lsp-progress.nvim',
-    config = {
-      require('lsp-progress').setup()
-    }
-  }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

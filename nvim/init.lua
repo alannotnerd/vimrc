@@ -7,11 +7,12 @@ _G.config = {
   use_icons = true,
 }
 
+require("core/boostrap")
+
 require("core/options")
 require("core/autocmds")
 require("core/keymaps")
 require("core/colors")
-require("core/boostrap")
 require("core/ui")
 require("core/lsp").setup()
 require("core.explorer").setup()
@@ -22,3 +23,4 @@ require("plugins/nvim-treesitter")
 require("plugins/alpha-nvim")
 
 require("plugins/telescope").setup()
+require("lsp-progress").setup()
