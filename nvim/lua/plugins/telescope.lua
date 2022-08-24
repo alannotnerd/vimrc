@@ -3,6 +3,7 @@ local M = {}
 local telescope = require("telescope")
 local builtin = require("telescope.builtin")
 local themes = require('telescope.themes')
+local actions = require('telescope.actions')
 
 function M.setup_keymapping()
   local mappings = {
@@ -30,7 +31,8 @@ end
 
 function M.setup()
   M.setup_keymapping()
-  telescope.setup({})
+  telescope.setup({
+  })
 end
 
 return M

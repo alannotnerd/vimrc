@@ -5,13 +5,13 @@ _G.config = {
     override_notify = true,
   },
   use_icons = true,
+  colorscheme = 'onedark'
 }
 
+require("core/boostrap")
 require("core/options")
 require("core/autocmds")
 require("core/keymaps")
-require("core/colors")
-require("core/boostrap")
 require("core/ui")
 require("core/lsp").setup()
 require("core.explorer").setup()
@@ -22,3 +22,4 @@ require("plugins/nvim-treesitter")
 require("plugins/alpha-nvim")
 
 require("plugins/telescope").setup()
+require("lsp-progress").setup()

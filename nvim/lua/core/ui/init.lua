@@ -1,8 +1,6 @@
 local feline = require("feline")
 local bufferline = require("bufferline")
-
--- Set colorscheme (from core/colors.lua/colorscheme_name)
-local colors = require("core/colors").onedark_dark
+local colors = require("core.ui.colors")[config.colorscheme]
 
 local vi_mode_colors = {
   NORMAL = colors.cyan,
@@ -191,7 +189,7 @@ feline.setup({
     fg = colors.fg,
   },
   components = components,
-  vi_mode_colors = vi_mode_colors,
+  --vi_mode_colors = vi_mode_colors,
   force_inactive = {
     filetypes = {
       "^NvimTree$",
@@ -205,5 +203,6 @@ feline.setup({
     bufnames = {},
   },
 })
-
 bufferline.setup({})
+
+vim.cmd("colorscheme " .. config.colorscheme)

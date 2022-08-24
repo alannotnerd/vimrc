@@ -1,0 +1,3 @@
+[submodule "nvim/lsp-progress.nvim"]
+	path = nvim/lsp-progress.nvim
+	url = git@github.com:alannotnerd/lsp-progress.nvim.git
