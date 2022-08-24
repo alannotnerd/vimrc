@@ -109,7 +109,7 @@ return packer.startup(function(use)
   use { 'stevearc/dressing.nvim' }
 
   use {
-    '~/.config/nvim/lsp-progress.nvim',
+    config_dir("/lsp-progress.nvim"),
     config = {
       require('lsp-progress').setup()
     }
