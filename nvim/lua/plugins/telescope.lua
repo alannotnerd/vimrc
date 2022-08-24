@@ -15,10 +15,10 @@ function M.setup_keymapping()
     ["<space>s*"] = function()
       builtin.grep_string({ grep_open_files = true })
     end,
-    ["<space>o"] = builtin.lsp_document_symbols,
+    ["<space>so"] = builtin.lsp_document_symbols,
     --builtin.lsp_workspace_symbols,
     ["<space>s"] = builtin.builtin,
-    ["<space>a"] = builtin.diagnostics,
+    ["<space>sa"] = builtin.diagnostics,
     ["gr"] = builtin.lsp_references,
     ["gd"] = builtin.lsp_definitions,
 
