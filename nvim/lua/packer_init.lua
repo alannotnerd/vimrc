@@ -46,7 +46,13 @@ return packer.startup(function(use)
   use("lukas-reineke/indent-blankline.nvim")
   use("Tastyep/structlog.nvim")
   use("rcarriga/nvim-notify")
-  use("windwp/nvim-autopairs") --TODO(alannotnerd): need to fix its innormal behavior.
+  use {
+    "windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {
+        ignored_next_char = ""
+      }
+    end
+  } --TODO(alannotnerd): need to fix its innormal behavior.
   use("kyazdani42/nvim-web-devicons")
   use({
     "nvim-treesitter/nvim-treesitter",
