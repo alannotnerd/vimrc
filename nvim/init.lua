@@ -22,4 +22,8 @@ require("plugins/nvim-treesitter")
 require("plugins/alpha-nvim")
 
 require("plugins/telescope").setup()
-require("lsp-progress").setup()
+
+local ok, mod = pcall(require, "lsp-progress")
+if ok then
+  mod.setup()
+end
