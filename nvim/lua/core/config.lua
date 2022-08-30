@@ -13,9 +13,9 @@ local M = {
     sort_by = "name",
     root_dirs = {},
     prefer_startup_root = true,
-    sync_root_with_cwd = false,
+    sync_root_with_cwd = true,
     reload_on_bufenter = false,
-    respect_buf_cwd = false,
+    respect_buf_cwd = true,
     on_attach = "disable",
     remove_keymaps = true,
     view = {
@@ -43,7 +43,8 @@ local M = {
       mappings = {
         custom_only = true,
         list = {
-          { key = { "<CR>", "o", "e" }, action = "edit" },
+          { key = { "o", "e" }, action = "edit" },
+          { key =  "<CR>" , action = "cd" },
           { key = "E", action = "vsplit" },
           { key = "s", action = "split" },
           { key = "<BS>", action = "dir_up" },
@@ -167,7 +168,7 @@ local M = {
       use_system_clipboard = true,
       change_dir = {
         enable = true,
-        global = false,
+        global = true,
         restrict_above_cwd = false,
       },
       expand_all = {
