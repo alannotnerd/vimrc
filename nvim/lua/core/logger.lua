@@ -64,6 +64,8 @@ function Log:setup(config)
 
   vim.notify = notify.notify
   self:configure_notifications(notify.notify)
+
+  _G.Log = self
 end
 
 --- Configure the sink in charge of logging notifications
@@ -108,7 +110,6 @@ function Log:configure_notifications(notif_handle)
     },
     impl = notif_handle,
   })
-  self:get_logger()
   table.insert(self.__handle.sinks, sink)
 end
 
@@ -116,19 +117,11 @@ end
 ---@param msg any
 ---@param level string [same as vim.log.log_levels]
 function Log:add_entry(level, msg, event)
-  local logger = self:get_logger()
+  local logger = self.__handle
   if not logger then
     return
   end
   logger:log(level, vim.inspect(msg), event)
-end
-
----Retrieves the handle of the logger object
----@return table|nil logger handle if found
-function Log:get_logger()
-  if self.__handle then
-    return self.__handle
-  end
 end
 
 ---Retrieves the path of the logfile
