@@ -39,12 +39,12 @@ require("core.plugin_loader").setup({
 
         " Fix autofix problem of current line
         nnoremap <leader>qf  <Plug>(coc-fix-current)
-        nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-        nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-        nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-        nnoremap <silent> <space>g :<C-u>CocList grep<CR>
-        nnoremap <silent> <space>l :<C-u>CocList lines<CR>
-        nnoremap <silent> <space>f :<C-u>CocList files<CR>
+        nnoremap <silent> <space>sa  :<C-u>CocList diagnostics<cr>
+        nnoremap <silent> <space>so  :<C-u>CocList outline<cr>
+        nnoremap <silent> <space>ss  :<C-u>CocList -I symbols<cr>
+        nnoremap <silent> <space>sg :<C-u>CocList grep<CR>
+        nnoremap <silent> <space>sl :<C-u>CocList lines<CR>
+        nnoremap <silent> <space>sf :<C-u>CocList files<CR>
 
         nnoremap <silent> <C-p>  :<C-u>CocListResume<CR>"
         nnoremap <silent> <C-j>  :<C-u>CocNext<CR>
@@ -67,6 +67,5 @@ require("core.ui").setup({
 })
 
 vim.cmd([[
-  highlight Pmenu ctermbg=238 gui=bold
   hi def link CocMenuSel PmenuSel
 ]])

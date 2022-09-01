@@ -9,6 +9,8 @@ local function map(mode, lhs, rhs, opts)
 end
 
 function M.setup()
+  vim.g.mapleader = ","
+
   map("", "<up>", "<nop>")
   map("", "<down>", "<nop>")
   map("", "<left>", "<nop>")
@@ -27,7 +29,7 @@ function M.setup()
   map("n", "<C-e>", ":NvimTreeToggle<CR>") -- open/close
 
   map("", "<C-j>", ":cn<CR>")
-  map("", "<C-k>", ":cp<CR>")  
+  map("", "<C-k>", ":cp<CR>")
 end
 
 return M
