@@ -25,6 +25,7 @@ function M.setup(plugins)
   packer.startup({
     function(use)
       use("wbthomason/packer.nvim") 
+      use("sindrets/diffview.nvim"),
       use({
         "kyazdani42/nvim-tree.lua",
         requires = {
