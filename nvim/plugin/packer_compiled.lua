@@ -122,6 +122,7 @@ _G.packer_plugins = {
     url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
+    config = { "\27LJ\2\nÜ\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\14highlight\1\0\1\venable\2\21ensure_installed\1\0\1\17sync_install\1\1\14\0\0\tbash\6c\bcpp\bcss\thtml\15javascript\tjson\blua\vpython\trust\15typescript\bvim\tyaml\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
     path = "/home/alan/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -179,14 +180,18 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
-time([[Config for gitsigns.nvim]], false)
 -- Config for: coc.nvim
 time([[Config for coc.nvim]], true)
 try_loadstring("\27LJ\2\nä\14\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0Ä\14        function! s:check_back_space() abort\n          let col = col('.') - 1\n          return !col || getline('.')[col - 1]  =~# '\\s'\n        endfunction\n\n        autocmd CursorHold * silent call CocActionAsync('highlight')\n        autocmd FileType * autocmd BufWritePre * silent call CocAction('format')\n\n        inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : <SID>check_back_space() ? \"\\<TAB>\" : coc#refresh()\n        inoremap <silent><expr> <S-TAB> coc#pum#visible() ? coc#pum#prev(1) : \"\\<C-p>\"\n\n        inoremap <silent><expr> <C-c> coc#pum#visible() ? coc#pum#cancel() : \"\\<C-c>\"\n        inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : \"\\<CR>\"\n\n\n        \" Diagnostic\n        nmap <silent> [g <Plug>(coc-diagnostic-prev)\n        nmap <silent> ]g <Plug>(coc-diagnostic-next)\n\n        \" Remap keys for gotos\n        nmap <silent> gd <Plug>(coc-definition)\n        nmap <silent> gr <Plug>(coc-references)\n        nmap <leader>rn <Plug>(coc-rename)\n        nmap <leader>f  <Plug>(coc-format)\n        xmap <leader>f  <Plug>(coc-format-selected)\n\n        \" Fix autofix problem of current line\n        nnoremap <leader>qf  <Plug>(coc-fix-current)\n        nnoremap <silent> <space>sa  :<C-u>CocList -A diagnostics<cr>\n        nnoremap <silent> <space>so  :<C-u>CocList -A outline<cr>\n        nnoremap <silent> <space>ss  :<C-u>CocList -A -I symbols<cr>\n        nnoremap <silent> <space>sg :<C-u>CocList -I -A grep<CR>\n        nnoremap <silent> <space>sl :<C-u>CocList -I -A lines<CR>\n        nnoremap <silent> <space>sf :<C-u>CocList -A files<CR>\n\n        nnoremap <silent> <C-p>  :<C-u>CocListResume<CR>\"\n        nnoremap <silent> <C-j>  :<C-u>CocNext<CR>\n        nnoremap <silent> <C-k>  :<C-u>CocPrev<CR>\n        let g:coc_global_extensions = ['coc-json', 'coc-lists', 'coc-tsserver', 'coc-rust-analyzer']\n      \bcmd\bvim\0", "config", "coc.nvim")
 time([[Config for coc.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+try_loadstring("\27LJ\2\nÜ\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\14highlight\1\0\1\venable\2\21ensure_installed\1\0\1\17sync_install\1\1\14\0\0\tbash\6c\bcpp\bcss\thtml\15javascript\tjson\blua\vpython\trust\15typescript\bvim\tyaml\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
+time([[Config for gitsigns.nvim]], false)
 if should_profile then save_profiles() end
 
 end)

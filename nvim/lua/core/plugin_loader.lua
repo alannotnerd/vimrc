@@ -39,6 +39,18 @@ function M.setup(plugins)
         run = function()
           require("nvim-treesitter.install").update({ with_sync = true })
         end,
+        config = function ()
+          require("nvim-treesitter.configs").setup {
+            ensure_installed = {
+              'bash', 'c', 'cpp', 'css', 'html', 'javascript', 'json', 'lua', 'python',
+              'rust', 'typescript', 'vim', 'yaml',
+            },
+            sync_install = false,
+            highlight = {
+              enable = true,
+            },
+          }
+        end
       })
       use({ "feline-nvim/feline.nvim", branch = '0.5-compat', requires = { "kyazdani42/nvim-web-devicons" } })
       use({ "goolord/alpha-nvim", requires = { "kyazdani42/nvim-web-devicons" } })
