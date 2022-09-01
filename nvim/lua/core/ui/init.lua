@@ -220,8 +220,6 @@ function M.setup(config)
     vi_mode_colors = vi_mode_colors
   })
   bufferline.setup({})
-
-  vim.cmd("colorscheme " .. config.colorscheme)
 end
 
 return M

@@ -39,12 +39,12 @@ require("core.plugin_loader").setup({
 
         " Fix autofix problem of current line
         nnoremap <leader>qf  <Plug>(coc-fix-current)
-        nnoremap <silent> <space>sa  :<C-u>CocList diagnostics<cr>
-        nnoremap <silent> <space>so  :<C-u>CocList outline<cr>
-        nnoremap <silent> <space>ss  :<C-u>CocList -I symbols<cr>
-        nnoremap <silent> <space>sg :<C-u>CocList grep<CR>
-        nnoremap <silent> <space>sl :<C-u>CocList lines<CR>
-        nnoremap <silent> <space>sf :<C-u>CocList files<CR>
+        nnoremap <silent> <space>sa  :<C-u>CocList -A diagnostics<cr>
+        nnoremap <silent> <space>so  :<C-u>CocList -A outline<cr>
+        nnoremap <silent> <space>ss  :<C-u>CocList -A -I symbols<cr>
+        nnoremap <silent> <space>sg :<C-u>CocList -I -A grep<CR>
+        nnoremap <silent> <space>sl :<C-u>CocList -I -A lines<CR>
+        nnoremap <silent> <space>sf :<C-u>CocList -A files<CR>
 
         nnoremap <silent> <C-p>  :<C-u>CocListResume<CR>"
         nnoremap <silent> <C-j>  :<C-u>CocNext<CR>
@@ -63,9 +63,5 @@ require("core.logger"):setup({ name = "aim", level = "DEBUG" })
 
 require("core.explorer").setup()
 require("core.ui").setup({
-  colorscheme = "onedark"
+  colorscheme = "monokai"
 })
-
-vim.cmd([[
-  hi def link CocMenuSel PmenuSel
-]])
