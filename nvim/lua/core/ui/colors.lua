@@ -56,10 +56,17 @@ M.__index = function(_, key)
           },
       }
     }
+    vim.cmd([[colorscheme monokai]])
     return monokai_schema_mapping("classic")
   elseif key == 'monokai_soda' then
     return monokai_schema_mapping("soda")
   elseif key == 'onedark' then
+    local onedark = require("onedark")
+    onedark.setup {
+      style = 'darker',
+      colors = { fg = '#b2bbcc' }
+    }
+    onedark.load()
     return {
       bg = '#282c34',
       fg = '#b2bbcc',
