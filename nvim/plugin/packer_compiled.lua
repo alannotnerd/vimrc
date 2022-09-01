@@ -74,13 +74,18 @@ _G.packer_plugins = {
     path = "/home/alan/.local/share/nvim/site/pack/packer/start/alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
   },
+  ["auto-pairs"] = {
+    loaded = true,
+    path = "/home/alan/.local/share/nvim/site/pack/packer/start/auto-pairs",
+    url = "https://github.com/jiangmiao/auto-pairs"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/alan/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
   ["coc.nvim"] = {
-    config = { "\27LJ\2\nØ\r\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0è\r        function! s:check_back_space() abort\n          let col = col('.') - 1\n          return !col || getline('.')[col - 1]  =~# '\\s'\n        endfunction\n\n        inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : <SID>check_back_space() ? \"\\<TAB>\" : coc#refresh()\n        inoremap <silent><expr> <S-TAB> coc#pum#visible() ? coc#pum#prev(1) : \"\\<C-p>\"\n\n        inoremap <silent><expr> <C-c> coc#pum#visible() ? coc#pum#cancel() : \"\\<C-c>\"\n        inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : \"\\<CR>\"\n\n\n        \" Diagnostic\n        nmap <silent> [g <Plug>(coc-diagnostic-prev)\n        nmap <silent> ]g <Plug>(coc-diagnostic-next)\n\n        \" Remap keys for gotos\n        nmap <silent> gd <Plug>(coc-definition)\n        nmap <silent> gr <Plug>(coc-references)\n        nmap <leader>rn <Plug>(coc-rename)\n        nmap <leader>f  <Plug>(coc-format)\n        xmap <leader>f  <Plug>(coc-format-selected)\n\n        \" Fix autofix problem of current line\n        nnoremap <leader>qf  <Plug>(coc-fix-current)\n        nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>\n        nnoremap <silent> <space>o  :<C-u>CocList outline<cr>\n        nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>\n        nnoremap <silent> <space>g :<C-u>CocList grep<CR>\n        nnoremap <silent> <space>l :<C-u>CocList lines<CR>\n        nnoremap <silent> <space>f :<C-u>CocList files<CR>\n\n        nnoremap <silent> <C-p>  :<C-u>CocListResume<CR>\"\n        nnoremap <silent> <C-j>  :<C-u>CocNext<CR>\n        nnoremap <silent> <C-k>  :<C-u>CocPrev<CR>\n        let g:coc_global_extensions = ['coc-json', 'coc-lists', 'coc-tsserver', 'coc-rust-analyzer']\n      \bcmd\bvim\0" },
+    config = { "\27LJ\2\n∆\14\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0¶\14        function! s:check_back_space() abort\n          let col = col('.') - 1\n          return !col || getline('.')[col - 1]  =~# '\\s'\n        endfunction\n\n        autocmd CursorHold * silent call CocActionAsync('highlight')\n        autocmd FileType * autocmd BufWritePre * silent call CocAction('format')\n\n        inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : <SID>check_back_space() ? \"\\<TAB>\" : coc#refresh()\n        inoremap <silent><expr> <S-TAB> coc#pum#visible() ? coc#pum#prev(1) : \"\\<C-p>\"\n\n        inoremap <silent><expr> <C-c> coc#pum#visible() ? coc#pum#cancel() : \"\\<C-c>\"\n        inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : \"\\<CR>\"\n\n\n        \" Diagnostic\n        nmap <silent> [g <Plug>(coc-diagnostic-prev)\n        nmap <silent> ]g <Plug>(coc-diagnostic-next)\n\n        \" Remap keys for gotos\n        nmap <silent> gd <Plug>(coc-definition)\n        nmap <silent> gr <Plug>(coc-references)\n        nmap <leader>rn <Plug>(coc-rename)\n        nmap <leader>f  <Plug>(coc-format)\n        xmap <leader>f  <Plug>(coc-format-selected)\n\n        \" Fix autofix problem of current line\n        nnoremap <leader>qf  <Plug>(coc-fix-current)\n        nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>\n        nnoremap <silent> <space>o  :<C-u>CocList outline<cr>\n        nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>\n        nnoremap <silent> <space>g :<C-u>CocList grep<CR>\n        nnoremap <silent> <space>l :<C-u>CocList lines<CR>\n        nnoremap <silent> <space>f :<C-u>CocList files<CR>\n\n        nnoremap <silent> <C-p>  :<C-u>CocListResume<CR>\"\n        nnoremap <silent> <C-j>  :<C-u>CocNext<CR>\n        nnoremap <silent> <C-k>  :<C-u>CocPrev<CR>\n        let g:coc_global_extensions = ['coc-json', 'coc-lists', 'coc-tsserver', 'coc-rust-analyzer']\n      \bcmd\bvim\0" },
     loaded = true,
     path = "/home/alan/.local/share/nvim/site/pack/packer/start/coc.nvim",
     url = "https://github.com/neoclide/coc.nvim"
@@ -150,18 +155,38 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/alan/.local/share/nvim/site/pack/packer/start/structlog.nvim",
     url = "https://github.com/Tastyep/structlog.nvim"
+  },
+  tcomment_vim = {
+    loaded = true,
+    path = "/home/alan/.local/share/nvim/site/pack/packer/start/tcomment_vim",
+    url = "https://github.com/tomtom/tcomment_vim"
+  },
+  ["vim-rainbow"] = {
+    loaded = true,
+    path = "/home/alan/.local/share/nvim/site/pack/packer/start/vim-rainbow",
+    url = "https://github.com/frazrepo/vim-rainbow"
+  },
+  ["vim-sneak"] = {
+    loaded = true,
+    path = "/home/alan/.local/share/nvim/site/pack/packer/start/vim-sneak",
+    url = "https://github.com/justinmk/vim-sneak"
+  },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "/home/alan/.local/share/nvim/site/pack/packer/start/vim-surround",
+    url = "https://github.com/tpope/vim-surround"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: coc.nvim
-time([[Config for coc.nvim]], true)
-try_loadstring("\27LJ\2\nØ\r\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0è\r        function! s:check_back_space() abort\n          let col = col('.') - 1\n          return !col || getline('.')[col - 1]  =~# '\\s'\n        endfunction\n\n        inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : <SID>check_back_space() ? \"\\<TAB>\" : coc#refresh()\n        inoremap <silent><expr> <S-TAB> coc#pum#visible() ? coc#pum#prev(1) : \"\\<C-p>\"\n\n        inoremap <silent><expr> <C-c> coc#pum#visible() ? coc#pum#cancel() : \"\\<C-c>\"\n        inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : \"\\<CR>\"\n\n\n        \" Diagnostic\n        nmap <silent> [g <Plug>(coc-diagnostic-prev)\n        nmap <silent> ]g <Plug>(coc-diagnostic-next)\n\n        \" Remap keys for gotos\n        nmap <silent> gd <Plug>(coc-definition)\n        nmap <silent> gr <Plug>(coc-references)\n        nmap <leader>rn <Plug>(coc-rename)\n        nmap <leader>f  <Plug>(coc-format)\n        xmap <leader>f  <Plug>(coc-format-selected)\n\n        \" Fix autofix problem of current line\n        nnoremap <leader>qf  <Plug>(coc-fix-current)\n        nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>\n        nnoremap <silent> <space>o  :<C-u>CocList outline<cr>\n        nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>\n        nnoremap <silent> <space>g :<C-u>CocList grep<CR>\n        nnoremap <silent> <space>l :<C-u>CocList lines<CR>\n        nnoremap <silent> <space>f :<C-u>CocList files<CR>\n\n        nnoremap <silent> <C-p>  :<C-u>CocListResume<CR>\"\n        nnoremap <silent> <C-j>  :<C-u>CocNext<CR>\n        nnoremap <silent> <C-k>  :<C-u>CocPrev<CR>\n        let g:coc_global_extensions = ['coc-json', 'coc-lists', 'coc-tsserver', 'coc-rust-analyzer']\n      \bcmd\bvim\0", "config", "coc.nvim")
-time([[Config for coc.nvim]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
+-- Config for: coc.nvim
+time([[Config for coc.nvim]], true)
+try_loadstring("\27LJ\2\n∆\14\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0¶\14        function! s:check_back_space() abort\n          let col = col('.') - 1\n          return !col || getline('.')[col - 1]  =~# '\\s'\n        endfunction\n\n        autocmd CursorHold * silent call CocActionAsync('highlight')\n        autocmd FileType * autocmd BufWritePre * silent call CocAction('format')\n\n        inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : <SID>check_back_space() ? \"\\<TAB>\" : coc#refresh()\n        inoremap <silent><expr> <S-TAB> coc#pum#visible() ? coc#pum#prev(1) : \"\\<C-p>\"\n\n        inoremap <silent><expr> <C-c> coc#pum#visible() ? coc#pum#cancel() : \"\\<C-c>\"\n        inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : \"\\<CR>\"\n\n\n        \" Diagnostic\n        nmap <silent> [g <Plug>(coc-diagnostic-prev)\n        nmap <silent> ]g <Plug>(coc-diagnostic-next)\n\n        \" Remap keys for gotos\n        nmap <silent> gd <Plug>(coc-definition)\n        nmap <silent> gr <Plug>(coc-references)\n        nmap <leader>rn <Plug>(coc-rename)\n        nmap <leader>f  <Plug>(coc-format)\n        xmap <leader>f  <Plug>(coc-format-selected)\n\n        \" Fix autofix problem of current line\n        nnoremap <leader>qf  <Plug>(coc-fix-current)\n        nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>\n        nnoremap <silent> <space>o  :<C-u>CocList outline<cr>\n        nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>\n        nnoremap <silent> <space>g :<C-u>CocList grep<CR>\n        nnoremap <silent> <space>l :<C-u>CocList lines<CR>\n        nnoremap <silent> <space>f :<C-u>CocList files<CR>\n\n        nnoremap <silent> <C-p>  :<C-u>CocListResume<CR>\"\n        nnoremap <silent> <C-j>  :<C-u>CocNext<CR>\n        nnoremap <silent> <C-k>  :<C-u>CocPrev<CR>\n        let g:coc_global_extensions = ['coc-json', 'coc-lists', 'coc-tsserver', 'coc-rust-analyzer']\n      \bcmd\bvim\0", "config", "coc.nvim")
+time([[Config for coc.nvim]], false)
 if should_profile then save_profiles() end
 
 end)

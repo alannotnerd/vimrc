@@ -52,7 +52,12 @@ require("core.plugin_loader").setup({
         let g:coc_global_extensions = ['coc-json', 'coc-lists', 'coc-tsserver', 'coc-rust-analyzer']
       ]])
     end
-  }
+  },
+  { 'frazrepo/vim-rainbow' },
+  { 'tomtom/tcomment_vim' },
+  { 'justinmk/vim-sneak' },
+  { 'tpope/vim-surround' },
+  { 'jiangmiao/auto-pairs' },
 })
 require("core.logger"):setup({ name = "aim", level = "DEBUG" })
 
@@ -61,4 +66,7 @@ require("core.ui").setup({
   colorscheme = "onedark"
 })
 
-vim.cmd([[hi def link CocMenuSel PmenuSel]])
+vim.cmd([[
+  highlight Pmenu ctermbg=238 gui=bold
+  hi def link CocMenuSel PmenuSel
+]])
