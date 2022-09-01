@@ -3,6 +3,7 @@ local M = {}
 function M.setup()
   local g = vim.g -- Global variables
   local opt = vim.opt -- Set options (global/buffer/windows-scoped)
+  vim.cmd([[syntax off]])
 
   -- General
   opt.mouse = 'i' -- Enable mouse support

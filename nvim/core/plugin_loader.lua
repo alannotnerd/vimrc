@@ -23,7 +23,12 @@ function M.setup(plugins)
 
   packer.startup(function(use)
     use("wbthomason/packer.nvim") 
-    use("kyazdani42/nvim-tree.lua")
+    use({
+      "kyazdani42/nvim-tree.lua",
+      requires = {
+        "kyazdani42/nvim-web-devicons"
+      }
+    })
     use("lukas-reineke/indent-blankline.nvim")
     use("Tastyep/structlog.nvim")
     use("rcarriga/nvim-notify")
