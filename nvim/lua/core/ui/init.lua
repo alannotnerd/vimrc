@@ -7,6 +7,23 @@ function M.setup(config)
   local colors = require("core.ui.colors")[config.colorscheme]
   local vi_mode_utils = require("feline.providers.vi_mode")
 
+  local vi_mode_colors = {
+    NORMAL = colors.cyan,
+    INSERT = colors.green,
+    VISUAL = colors.yellow,
+    OP = colors.cyan,
+    BLOCK = colors.cyan,
+    REPLACE = colors.red,
+    ["V-REPLACE"] = colors.red,
+    ENTER = colors.orange,
+    MORE = colors.orange,
+    SELECT = colors.yellow,
+    COMMAND = colors.pink,
+    SHELL = colors.pink,
+    TERM = colors.pink,
+    NONE = colors.yellow,
+  }
+
   local comps = {
     vi_mode = {
       left = {
@@ -70,25 +87,37 @@ function M.setup(config)
     -- LSP info
     diagnos = {
       err = {
-        provider = "diagnostic_errors",
+        provider = {
+          name = "coc_diagnostic_info",
+          opts = "error"
+        },
         icon = " ",
         hl = { fg = colors.red },
         left_sep = "  ",
       },
       warn = {
-        provider = "diagnostic_warnings",
-        icon = " ",
+        provider = {
+          name = "coc_diagnostic_info",
+          opts = "warning"
+        },
+        icon = " ",
         hl = { fg = colors.yellow },
         left_sep = " ",
       },
       info = {
-        provider = "diagnostic_info",
+        provider = {
+          name = "coc_diagnostic_info",
+          opts = "information"
+        },
         icon = " ",
         hl = { fg = colors.green },
         left_sep = " ",
       },
       hint = {
-        provider = "diagnostic_hints",
+        provider = {
+          name = "coc_diagnostic_info",
+          opts = "hint"
+        },
         icon = " ",
         hl = { fg = colors.cyan },
         left_sep = " ",
@@ -165,6 +194,17 @@ function M.setup(config)
       fg = colors.fg,
     },
     components = components,
+    custom_providers = {
+      coc_diagnostic_info = function (_, security)
+        local info = vim.b.coc_diagnostic_info or {
+          warning = 0,
+          information = 0,
+          error = 0,
+          hint = 0,
+        }
+        return tostring(info[security])
+      end
+    },
     force_inactive = {
       filetypes = {
         "^NvimTree$",
@@ -177,6 +217,7 @@ function M.setup(config)
       },
       bufnames = {},
     },
+    vi_mode_colors = vi_mode_colors
   })
   bufferline.setup({})
 
