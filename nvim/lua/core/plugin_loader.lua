@@ -43,6 +43,13 @@ function M.setup(plugins)
       use({ "feline-nvim/feline.nvim", branch = '0.5-compat', requires = { "kyazdani42/nvim-web-devicons" } })
       use({ "goolord/alpha-nvim", requires = { "kyazdani42/nvim-web-devicons" } })
       use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
+      use({
+        "lewis6991/gitsigns.nvim",
+        requires = { "nvim-lua/plenary.nvim" },
+        config = function()
+          require("gitsigns").setup({})
+        end,
+      })
 
       for _, plugin in pairs(plugins or {}) do
         use(plugin)

@@ -1,0 +1,15 @@
+{
+  "suggest.floatConfig": {
+    "rounded": true,
+    "border": true,
+    "borderhighlight": "FloatBorder"
+  },
+  "diagnostic.enableSign": true,
+  "diagnostic.infoSign": "",
+  "diagnostic.warningSign": "",
+  "diagnostic.hintSign": "",
+  "diagnostic.errorSign": "",
+  "suggest.virtualText": true,
+  "diagnostic.virtualText": true
+  
+}

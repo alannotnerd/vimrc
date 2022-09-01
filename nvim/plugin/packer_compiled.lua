@@ -79,10 +79,11 @@ _G.packer_plugins = {
     path = "/home/alan/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
-  ["diffview.nvim"] = {
+  ["coc.nvim"] = {
+    config = { "\27LJ\2\nØ\r\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0è\r        function! s:check_back_space() abort\n          let col = col('.') - 1\n          return !col || getline('.')[col - 1]  =~# '\\s'\n        endfunction\n\n        inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : <SID>check_back_space() ? \"\\<TAB>\" : coc#refresh()\n        inoremap <silent><expr> <S-TAB> coc#pum#visible() ? coc#pum#prev(1) : \"\\<C-p>\"\n\n        inoremap <silent><expr> <C-c> coc#pum#visible() ? coc#pum#cancel() : \"\\<C-c>\"\n        inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : \"\\<CR>\"\n\n\n        \" Diagnostic\n        nmap <silent> [g <Plug>(coc-diagnostic-prev)\n        nmap <silent> ]g <Plug>(coc-diagnostic-next)\n\n        \" Remap keys for gotos\n        nmap <silent> gd <Plug>(coc-definition)\n        nmap <silent> gr <Plug>(coc-references)\n        nmap <leader>rn <Plug>(coc-rename)\n        nmap <leader>f  <Plug>(coc-format)\n        xmap <leader>f  <Plug>(coc-format-selected)\n\n        \" Fix autofix problem of current line\n        nnoremap <leader>qf  <Plug>(coc-fix-current)\n        nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>\n        nnoremap <silent> <space>o  :<C-u>CocList outline<cr>\n        nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>\n        nnoremap <silent> <space>g :<C-u>CocList grep<CR>\n        nnoremap <silent> <space>l :<C-u>CocList lines<CR>\n        nnoremap <silent> <space>f :<C-u>CocList files<CR>\n\n        nnoremap <silent> <C-p>  :<C-u>CocListResume<CR>\"\n        nnoremap <silent> <C-j>  :<C-u>CocNext<CR>\n        nnoremap <silent> <C-k>  :<C-u>CocPrev<CR>\n        let g:coc_global_extensions = ['coc-json', 'coc-lists', 'coc-tsserver', 'coc-rust-analyzer']\n      \bcmd\bvim\0" },
     loaded = true,
-    path = "/home/alan/.local/share/nvim/site/pack/packer/start/diffview.nvim",
-    url = "https://github.com/sindrets/diffview.nvim"
+    path = "/home/alan/.local/share/nvim/site/pack/packer/start/coc.nvim",
+    url = "https://github.com/neoclide/coc.nvim"
   },
   ["feline.nvim"] = {
     loaded = true,
@@ -104,12 +105,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/alan/.local/share/nvim/site/pack/packer/start/monokai.nvim",
     url = "https://github.com/tanvirtin/monokai.nvim"
-  },
-  neogit = {
-    config = { "\27LJ\2\n]\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\17integrations\1\0\0\1\0\1\rdiffview\2\nsetup\vneogit\frequire\0" },
-    loaded = true,
-    path = "/home/alan/.local/share/nvim/site/pack/packer/start/neogit",
-    url = "https://github.com/TimUntersberger/neogit"
   },
   ["nvim-notify"] = {
     loaded = true,
@@ -159,10 +154,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: neogit
-time([[Config for neogit]], true)
-try_loadstring("\27LJ\2\n]\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\17integrations\1\0\0\1\0\1\rdiffview\2\nsetup\vneogit\frequire\0", "config", "neogit")
-time([[Config for neogit]], false)
+-- Config for: coc.nvim
+time([[Config for coc.nvim]], true)
+try_loadstring("\27LJ\2\nØ\r\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0è\r        function! s:check_back_space() abort\n          let col = col('.') - 1\n          return !col || getline('.')[col - 1]  =~# '\\s'\n        endfunction\n\n        inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : <SID>check_back_space() ? \"\\<TAB>\" : coc#refresh()\n        inoremap <silent><expr> <S-TAB> coc#pum#visible() ? coc#pum#prev(1) : \"\\<C-p>\"\n\n        inoremap <silent><expr> <C-c> coc#pum#visible() ? coc#pum#cancel() : \"\\<C-c>\"\n        inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : \"\\<CR>\"\n\n\n        \" Diagnostic\n        nmap <silent> [g <Plug>(coc-diagnostic-prev)\n        nmap <silent> ]g <Plug>(coc-diagnostic-next)\n\n        \" Remap keys for gotos\n        nmap <silent> gd <Plug>(coc-definition)\n        nmap <silent> gr <Plug>(coc-references)\n        nmap <leader>rn <Plug>(coc-rename)\n        nmap <leader>f  <Plug>(coc-format)\n        xmap <leader>f  <Plug>(coc-format-selected)\n\n        \" Fix autofix problem of current line\n        nnoremap <leader>qf  <Plug>(coc-fix-current)\n        nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>\n        nnoremap <silent> <space>o  :<C-u>CocList outline<cr>\n        nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>\n        nnoremap <silent> <space>g :<C-u>CocList grep<CR>\n        nnoremap <silent> <space>l :<C-u>CocList lines<CR>\n        nnoremap <silent> <space>f :<C-u>CocList files<CR>\n\n        nnoremap <silent> <C-p>  :<C-u>CocListResume<CR>\"\n        nnoremap <silent> <C-j>  :<C-u>CocNext<CR>\n        nnoremap <silent> <C-k>  :<C-u>CocPrev<CR>\n        let g:coc_global_extensions = ['coc-json', 'coc-lists', 'coc-tsserver', 'coc-rust-analyzer']\n      \bcmd\bvim\0", "config", "coc.nvim")
+time([[Config for coc.nvim]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
