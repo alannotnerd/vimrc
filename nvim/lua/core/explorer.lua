@@ -8,8 +8,15 @@ function M.setup()
   end
 
 	nvim_tree.setup({
+    sync_root_with_cwd = true,
+    respect_buf_cwd = true,
+    reload_on_bufenter = true,
+    actions = {
+      change_dir = {
+        global = true
+      }
+    },
     view = {
-      hide_root_folder = true,
       mappings = {
         custom_only = true,
         list = {
@@ -31,7 +38,11 @@ function M.setup()
       },
     },
     renderer = {
+      highlight_git = true,
       icons = {
+        show = {
+          git = false
+        },
         glyphs = {
           default = "",
           symlink = "",
@@ -45,25 +56,7 @@ function M.setup()
             empty_open = "",
             symlink = "",
             symlink_open = "",
-          },
-          git = {
-            unstaged = "",
-            staged = "",
-            unmerged = "",
-            renamed = "",
-            untracked = "",
-            deleted = "",
-            ignored = "",
-          },
-          -- git = {
-          -- 	unstaged = "✗",
-          -- 	staged = "✓",
-          -- 	unmerged = "",
-          -- 	renamed = "➜",
-          -- 	untracked = "★",
-          -- 	deleted = "",
-          -- 	ignored = "◌",
-          -- },
+          }
         },
       }
     }

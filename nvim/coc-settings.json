@@ -5,7 +5,7 @@
   "diagnostic.hintSign": "",
   "diagnostic.errorSign": "",
   "suggest.virtualText": true,
-  "suggest.formatItems": ["kind", "abbr", "menu", "shortcut"],
+  "suggest.formatItems": ["kind", "abbr", "menu"],
   "suggest.completionItemKindLabels": {
     "class": " ",
     "color": " ",
@@ -32,6 +32,6 @@
     "unit": "塞",
     "value": " ",
     "variable": " ",
-    "default": " "
+    "default": "  "
   }
 }
