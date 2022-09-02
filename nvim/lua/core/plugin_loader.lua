@@ -1,16 +1,5 @@
 local M = {}
 
-function M.load_plugins() 
-  local plugins = {}
-  for name, type in vim.fs.dir(config_dir("/lua/plugins")) do
-    local status_ok, plugin_spec = pcall(require, "plugins." .. name)
-    if status_ok then
-      table.insert(plugins, plugin_spec)
-    end
-  end
-  return plugins
-end
-
 function M.setup(plugins)
   local fn = vim.fn
   local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
