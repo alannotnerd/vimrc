@@ -52,15 +52,21 @@ require("core.plugin_loader").setup({
       ]])
     end
   },
-  { 'sindrets/diffview.nvim' },
   { 'frazrepo/vim-rainbow' },
   { 'tomtom/tcomment_vim' },
   { 'justinmk/vim-sneak' },
   { 'tpope/vim-surround' },
   { 'jiangmiao/auto-pairs' },
+  {
+    'tanvirtin/vgit.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    }
+  }
 })
+require("core.logger"):setup({ name = "aim", level = "DEBUG" })
 require("core.ui").setup({
   colorscheme = "monokai"
 })
-require("core.logger"):setup({ name = "aim", level = "DEBUG" })
 require("core.explorer").setup()
+

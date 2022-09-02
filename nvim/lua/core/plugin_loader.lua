@@ -1,5 +1,16 @@
 local M = {}
 
+function M.load_plugins() 
+  local plugins = {}
+  for name, type in vim.fs.dir(config_dir("/lua/plugins")) do
+    local status_ok, plugin_spec = pcall(require, "plugins." .. name)
+    if status_ok then
+      table.insert(plugins, plugin_spec)
+    end
+  end
+  return plugins
+end
+
 function M.setup(plugins)
   local fn = vim.fn
   local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -52,7 +63,7 @@ function M.setup(plugins)
           }
         end
       })
-      use({ "feline-nvim/feline.nvim", branch = '0.5-compat', requires = { "kyazdani42/nvim-web-devicons" } })
+      use({ "feline-nvim/feline.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
       use({ "goolord/alpha-nvim", requires = { "kyazdani42/nvim-web-devicons" } })
       use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
       use({

@@ -9,3 +9,5 @@ end
 _G.config_dir = function(path)
   return vim.call('stdpath', 'config') .. path
 end
+
+_G.vim = vim
