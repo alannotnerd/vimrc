@@ -1,14 +1,3 @@
--- function M.load_plugins() 
---   local plugins = {}
---   for name, type in vim.fs.dir(config_dir("/lua/plugins")) do
---     local status_ok, plugin_spec = pcall(require, "plugins." .. name)
---     if status_ok then
---       table.insert(plugins, plugin_spec)
---     end
---   end
---   return plugins
--- end
-
 require("core.bootstrap")
 require("core.options").setup()
 require("core.keymaps").setup()
