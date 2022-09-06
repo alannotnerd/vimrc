@@ -38,7 +38,7 @@ function M.setup(plugins)
         "feline-nvim/feline.nvim",
         requires = {
           "navarasu/onedark.nvim",
-          "tanvirtin/monokai.nvim",
+          "alannotnerd/monokai.nvim",
           "kyazdani42/nvim-web-devicons",
           { "akinsho/bufferline.nvim", tag = "v2.*" },
           "lukas-reineke/indent-blankline.nvim",

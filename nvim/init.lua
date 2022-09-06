@@ -12,3 +12,4 @@ require("core.plugin_loader").setup({
   require("plugins.nvim-colorizer")
 })
 
+vim.cmd[[colorscheme monokai]]

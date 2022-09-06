@@ -4,26 +4,7 @@ local feline = require("feline")
 local bufferline = require("bufferline")
 
 function M.setup(config)
-  local colors = require("core.ui.colors")[config.colorscheme]
   local vi_mode_utils = require("feline.providers.vi_mode")
-
-  local vi_mode_colors = {
-    NORMAL = colors.cyan,
-    INSERT = colors.green,
-    VISUAL = colors.yellow,
-    OP = colors.cyan,
-    BLOCK = colors.cyan,
-    REPLACE = colors.red,
-    ["V-REPLACE"] = colors.red,
-    ENTER = colors.orange,
-    MORE = colors.orange,
-    SELECT = colors.yellow,
-    COMMAND = colors.pink,
-    SHELL = colors.pink,
-    TERM = colors.pink,
-    NONE = colors.yellow,
-  }
-
   local comps = {
     vi_mode = {
       left = {
@@ -31,7 +12,6 @@ function M.setup(config)
         hl = function()
           local set_color = {
             name = vi_mode_utils.get_mode_highlight_name(),
-            fg = colors.bg,
             bg = vi_mode_utils.get_mode_color(),
             style = "bold",
           }
@@ -50,7 +30,6 @@ function M.setup(config)
             file_modified_icon = "",
           },
         },
-        hl = { fg = colors.cyan },
         icon = "",
       },
       type = {
@@ -66,10 +45,8 @@ function M.setup(config)
         hl = function()
           local set_color = {
             name = vi_mode_utils.get_mode_highlight_name(),
-            fg = colors.bg,
             bg = vi_mode_utils.get_mode_color(),
-            style = "bold",
-          }
+            style = "bold", }
           return set_color
         end
       },
@@ -77,7 +54,6 @@ function M.setup(config)
       position = {
         provider = { name = "position" },
         hl = {
-          fg = colors.fg,
           style = "bold",
         },
         left_sep = " ",
@@ -92,7 +68,7 @@ function M.setup(config)
           opts = "error"
         },
         icon = " ",
-        hl = { fg = colors.red },
+        hl = "DiagnosticSignError",
         left_sep = "  ",
       },
       warn = {
@@ -101,7 +77,7 @@ function M.setup(config)
           opts = "warning"
         },
         icon = " ",
-        hl = { fg = colors.yellow },
+        hl = "DiagnosticSignWarn",
         left_sep = " ",
       },
       info = {
@@ -110,7 +86,7 @@ function M.setup(config)
           opts = "information"
         },
         icon = " ",
-        hl = { fg = colors.green },
+        hl = "DiagnosticSignInfo",
         left_sep = " ",
       },
       hint = {
@@ -119,17 +95,8 @@ function M.setup(config)
           opts = "hint"
         },
         icon = " ",
-        hl = { fg = colors.cyan },
+        hl = "DiagnosticSignHint",
         left_sep = " ",
-      },
-    },
-    lsp = {
-      name = {
-        provider = "lsp_client_names",
-        icon = "  ",
-        hl = { fg = colors.pink },
-        left_sep = "  ",
-        right_sep = " ",
       },
     },
     -- git info
@@ -137,25 +104,25 @@ function M.setup(config)
       branch = {
         provider = "git_branch",
         icon = " ",
-        hl = { fg = colors.pink },
+        hl = "GitSignsAdd",
         left_sep = "  ",
       },
       add = {
         provider = "git_diff_added",
-        icon = "  ",
-        hl = { fg = colors.green },
+        icon = " ",
+        hl = "GitSignsAdd",
         left_sep = " ",
       },
       change = {
         provider = "git_diff_changed",
-        icon = "  ",
-        hl = { fg = colors.orange },
+        icon = " ",
+        hl = "GitSignsChange",
         left_sep = " ",
       },
       remove = {
         provider = "git_diff_removed",
-        icon = "  ",
-        hl = { fg = colors.red },
+        icon = " ",
+        hl = "GitSignsDelete",
         left_sep = " ",
       },
     },
@@ -189,10 +156,6 @@ function M.setup(config)
   }
 
   feline.setup({
-    theme = {
-      bg = colors.bg,
-      fg = colors.fg,
-    },
     components = components,
     custom_providers = {
       coc_diagnostic_info = function (_, security)
@@ -217,7 +180,25 @@ function M.setup(config)
       },
       bufnames = {},
     },
-    vi_mode_colors = vi_mode_colors
+    vi_mode_colors = {
+      NORMAL = 'skyblue',
+      INSERT = "green",
+      VISUAL = "yellow",
+      OP = "cyan",
+      BLOCK = "cyan",
+      REPLACE = "red",
+      ["V-REPLACE"] = "red",
+      ENTER = "orange",
+      MORE = "orange",
+      SELECT = "yellow",
+      COMMAND = "pink",
+      SHELL = "pink",
+      TERM = "pink",
+      NONE = "yellow",
+    },
+    theme = {
+      bg = 'bg'
+    }
   })
   bufferline.setup({})
 end
