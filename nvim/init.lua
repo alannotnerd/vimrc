@@ -8,6 +8,7 @@ require("core.plugin_loader").setup({
   { 'justinmk/vim-sneak' },
   { 'tpope/vim-surround' },
   { 'jiangmiao/auto-pairs' },
-  require("plugins.toggleterm")
+  require("plugins.toggleterm"),
+  require("plugins.nvim-colorizer")
 })
 
