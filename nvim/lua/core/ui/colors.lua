@@ -89,6 +89,7 @@ M.__index = function(_, key)
   else
     Log:error("No such color scheme")
   end
+  require("nvim-web-devicons").set_up_highlights()
 end
 
 return setmetatable({}, M)

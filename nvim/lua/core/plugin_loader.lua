@@ -1,4 +1,5 @@
 local M = {}
+local builtin_plugins = require("core.built_plugins")
 
 function M.setup(plugins)
   local fn = vim.fn
@@ -26,14 +27,37 @@ function M.setup(plugins)
     function(use)
       use("wbthomason/packer.nvim")
       use({
-        "kyazdani42/nvim-tree.lua",
-        requires = {
-          "kyazdani42/nvim-web-devicons"
-        }
+        "rcarriga/nvim-notify",
+        requires = { "Tastyep/structlog.nvim" },
+        config = function ()
+          require("core.logger"):setup({ name = "aim", level = "DEBUG" })
+        end
       })
-      use("lukas-reineke/indent-blankline.nvim")
-      use("Tastyep/structlog.nvim")
-      use("rcarriga/nvim-notify")
+
+      use({
+        "feline-nvim/feline.nvim",
+        requires = {
+          "navarasu/onedark.nvim",
+          "tanvirtin/monokai.nvim",
+          "kyazdani42/nvim-web-devicons",
+          { "akinsho/bufferline.nvim", tag = "v2.*" },
+          "lukas-reineke/indent-blankline.nvim",
+          { "rose-pine/neovim", as = "rose-pine" },
+        },
+        config = function ()
+          require("core.ui").setup({
+            colorscheme = "monokai"
+          })
+        end
+      })
+
+      use({
+        "kyazdani42/nvim-tree.lua",
+        config = function ()
+          require("core.explorer").setup()
+        end
+      })
+
       use({
         "nvim-treesitter/nvim-treesitter",
         run = function()
@@ -52,10 +76,11 @@ function M.setup(plugins)
           }
         end
       })
-      use({ "feline-nvim/feline.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
-      use({ "goolord/alpha-nvim", requires = { "kyazdani42/nvim-web-devicons" } })
-      use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
-      use(require("core.builtin.gitsigns"))
+
+
+      for _, builtin_plugin in pairs(builtin_plugins or {}) do
+        use(builtin_plugin)
+      end
 
       for _, plugin in pairs(plugins or {}) do
         use(plugin)

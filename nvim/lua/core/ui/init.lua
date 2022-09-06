@@ -2,7 +2,6 @@ local M = {}
 
 local feline = require("feline")
 local bufferline = require("bufferline")
-local devicons = require("nvim-web-devicons")
 
 function M.setup(config)
   local colors = require("core.ui.colors")[config.colorscheme]

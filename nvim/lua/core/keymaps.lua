@@ -23,9 +23,6 @@ function M.setup()
 
   map("n", "<leader>ar", ":so %<CR>")
 
-  map("n", "<C-t>", ":Term<CR>") -- open
-  map("t", "<Esc>", "<C-\\><C-n>") -- exit
-
   map("n", "<C-e>", ":NvimTreeToggle<CR>") -- open/close
 
   map("", "<C-j>", ":cn<CR>")
