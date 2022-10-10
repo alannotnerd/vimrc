@@ -33,5 +33,14 @@
     "value": " ",
     "variable": " ",
     "default": "  "
+  },
+  "languageserver": {
+    "solidity": {
+      "command": "solidity-language-server",
+      "args": ["--stdio"],
+      "rootPatterns": [".git/"],
+      "trace.server": "verbose",
+      "filetypes": ["solidity"]
+    }
   }
 }

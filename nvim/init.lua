@@ -7,7 +7,7 @@ require("core.plugin_loader").setup({
   { 'tomtom/tcomment_vim' },
   { 'justinmk/vim-sneak' },
   { 'tpope/vim-surround' },
-  { 'jiangmiao/auto-pairs' },
+  require("plugins.nvim-autopair"),
   require("plugins.toggleterm"),
   require("plugins.nvim-colorizer")
 })
