@@ -8,7 +8,7 @@ function M.setup()
   -- General
   opt.mouse = 'i' -- Enable mouse support
   opt.clipboard = 'unnamedplus' -- Copy/paste to system clipboard
-  if vim.fn.executable("win32yank.exe") then
+  if vim.fn.executable("win32yank.exe") == 1 then
     g.clipboard = {
       name = "win32yank-wsl",
       copy = {
