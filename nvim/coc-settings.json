@@ -36,11 +36,19 @@
   },
   "languageserver": {
     "solidity": {
-      "command": "solidity-language-server",
+      "command": "solsp",
       "args": ["--stdio"],
       "rootPatterns": [".git/"],
       "trace.server": "verbose",
       "filetypes": ["solidity"]
     }
-  }
+  },
+  "cSpell.userWords": [
+    "IERC",
+    "Mintable",
+    "Ntoken",
+    "bayc",
+    "mayc",
+    "nomicfoundation"
+  ]
 }

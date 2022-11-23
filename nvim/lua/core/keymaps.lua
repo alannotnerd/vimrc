@@ -21,8 +21,6 @@ function M.setup()
   map("n", "<F2>", ":set invpaste paste?<CR>")
   vim.opt.pastetoggle = "<F2>"
 
-  map("n", "<leader>ar", ":so %<CR>")
-
   map("n", "<C-e>", ":NvimTreeToggle<CR>") -- open/close
 
   map("", "<C-j>", ":cn<CR>")

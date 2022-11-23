@@ -9,7 +9,7 @@ local M = {
         endfunction
 
         autocmd CursorHold * silent call CocActionAsync('highlight')
-        autocmd FileType * autocmd BufWritePre * silent call CocAction('format')
+        #autocmd FileType * autocmd BufWritePre * silent call CocAction('format')
 
         inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
         inoremap <silent><expr> <S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-p>"
@@ -18,19 +18,16 @@ local M = {
         inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
 
-        " Diagnostic
-        nmap <silent> [g <Plug>(coc-diagnostic-prev)
-        nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
         " Remap keys for gotos
-        nmap <silent> gd <Plug>(coc-definition)
-        nmap <silent> gr <Plug>(coc-references)
-        nmap <leader>rn <Plug>(coc-rename)
-        nmap <leader>f  <Plug>(coc-format)
-        xmap <leader>f  <Plug>(coc-format-selected)
+        nnoremap <silent> gd <Plug>(coc-definition)
+        nnoremap <silent> gr <Plug>(coc-references)
+        nnoremap <leader>rn <Plug>(coc-rename)
+        nnoremap <leader>f  <Plug>(coc-format)
+        xnoremap <leader>f  <Plug>(coc-format-selected)
 
         " Fix autofix problem of current line
         nnoremap <leader>qf  <Plug>(coc-fix-current)
+        nnoremap <silent> <leader>ac <Plug>(coc-codeaction-cursor)
         nnoremap <silent> <space>sa  :<C-u>CocList -A diagnostics<cr>
         nnoremap <silent> <space>so  :<C-u>CocList -A outline<cr>
         nnoremap <silent> <space>ss  :<C-u>CocList -A -I symbols<cr>
