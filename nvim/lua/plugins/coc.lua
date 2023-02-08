@@ -9,7 +9,7 @@ local M = {
         endfunction
 
         autocmd CursorHold * silent call CocActionAsync('highlight')
-        #autocmd FileType * autocmd BufWritePre * silent call CocAction('format')
+        " autocmd FileType * autocmd BufWritePre * silent call CocAction('format')
 
         inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
         inoremap <silent><expr> <S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-p>"
