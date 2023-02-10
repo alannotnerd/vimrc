@@ -1,0 +1,26 @@
+#!/usr/bin/env python3
+from optparse import OptionParser
+import subprocess
+import re
+import os
+
+parser = OptionParser()
+(options, args) = parser.parse_args()
+
+if len(args) != 1:
+   exit(0) 
+
+z = re.match("(\w+)(/(\w+))?", args[0])
+if not z:
+    exit(0)
+
+(owner, _, repo) = z.groups()
+if not repo:
+    repo = owner
+    owner = os.path.basename(os.path.normpath(os.getcwd()))
+
+path = os.path.expanduser("~/repo")
+repo_dir = os.path.join(path, owner, repo)
+subprocess.run(["gh", "repo", "clone", f"{owner}/{repo}", repo_dir])
+
+
