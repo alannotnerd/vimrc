@@ -10,7 +10,7 @@ parser = OptionParser()
 if len(args) != 1:
    exit(0) 
 
-z = re.match("(\w+)(/(\w+))?", args[0])
+z = re.match("([\w-]+)(/([\w-]+))?", args[0])
 if not z:
     exit(0)
 

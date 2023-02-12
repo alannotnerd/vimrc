@@ -10,6 +10,7 @@ require("core.plugin_loader").setup({
   require("plugins.nvim-autopair"),
   require("plugins.toggleterm"),
   require("plugins.nvim-colorizer")
+  { 'nvim-treesitter/nvim-treesitter-context'},
 })
 
 vim.cmd[[colorscheme monokai]]
