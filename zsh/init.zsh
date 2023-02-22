@@ -51,6 +51,8 @@ zinit ice from"gh-r" as"command" atclone"./starship init zsh > init.zsh; ./stars
 	atpull"%atclone" src"init.zsh"
 zinit light starship/starship
 
+zinit snippet OMZ::plugins/git/git.plugin.zsh
+
 source /usr/share/nvm/init-nvm.sh
 
 export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
