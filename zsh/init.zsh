@@ -64,7 +64,7 @@ zinit light zellij-org/zellij
 
 zinit snippet OMZ::plugins/git/git.plugin.zsh
 
-source /usr/share/nvm/init-nvm.sh
+zinit snippet https://raw.githubusercontent.com/lukechilds/zsh-nvm/master/zsh-nvm.plugin.zsh
 
 export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 
