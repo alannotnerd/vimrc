@@ -9,7 +9,7 @@ require("core.plugin_loader").setup({
   { 'tpope/vim-surround' },
   require("plugins.nvim-autopair"),
   require("plugins.toggleterm"),
-  require("plugins.nvim-colorizer")
+  require("plugins.nvim-colorizer"),
   { 'nvim-treesitter/nvim-treesitter-context'},
 })
 
