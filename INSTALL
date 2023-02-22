@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
 from subprocess import run, check_output
-from os import path, listdir, getcwd
+from os import path, listdir, mkdir
 from shutil import which
+from pathlib import Path
 
 def path_of(file):
     return path.join(path.dirname(__file__), file)
@@ -22,24 +23,25 @@ def bin_exists(bin):
     out = which("zsh")
     return out
 
+def link(src, target, force=False):
+    if force or not path.exists(target):
+        print(f"Configure {src}")
+        Path(path.dirname(target)).mkdir(parents=True, exist_ok=True)
+        run(["ln", "-s", path_of(src), target])
+    else:
+        print(f"Skip {src}")
+
 # create nvim symbol link
-print("Configure nvim")
-if not path.exists(path.expandvars("$HOME/.config/nvim")):
-    run(["ln", "-s", path_of("nvim"), path.expandvars("$HOME/.config/nvim")])
+link("nvim", path.expandvars("$HOME/.config/nvim"))
 
 # create tools symbol link
-print("Configure tools")
 tools_path = path_of("tools")
 for tool in listdir(tools_path):
-    if path.exists(path.expandvars(f"$HOME/.local/bin/{tool}")):
-        continue
-    print(f"Create symbol link for {tool} to ~/.local/bin/{tool}")
-    run(["ln", "-s", path.join(tools_path, tool), path.expandvars(f"$HOME/.local/bin/{tool}")])
+    link(f"tools/{tool}", path.expandvars(f"$HOME/.local/bin/{tool}"))
 
-print("Configure zsh")
 if not bin_exists("zsh"):
+    print("Zsh not found. Installing zsh...")
     install_zsh()
 
-zshrc_path = path.expandvars("$HOME/.zshrc")
-if not path.exists(zshrc_path):
-    run(["ln", "-s", path_of("zsh/init.zsh"), zshrc_path])
+link("zsh/init.zsh", path.expandvars("$HOME/.zshrc"))
+link("zsh/starship.toml", path.expandvars("$HOME/.config/starship.toml"))
