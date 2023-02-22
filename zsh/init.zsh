@@ -32,24 +32,35 @@ zinit wait lucid light-mode for \
       zsh-users/zsh-completions
 
 # sharkdp/fd
-zinit ice as"command" from"gh-r" mv"fd* -> fd" pick"fd/fd"
+zinit ice as"command" from"gh-r" sbin"fd"
 zinit light sharkdp/fd
 
 # sharkdp/bat
-zinit ice as"command" from"gh-r" mv"bat* -> bat" pick"bat/bat"
+zinit ice as"command" from"gh-r" sbin"bat"
 zinit light sharkdp/bat
 
 # ogham/exa, replacement for ls
-zinit ice wait"2" lucid from"gh-r" as"program" mv"bin/exa* -> exa" atload"alias ls='exa --icons --group-directories-first'"
+zinit ice wait"2" lucid from"gh-r" as"program" mv"bin/exa* -> exa" sbin"exa" atload"alias ls='exa --icons --group-directories-first'"
 zinit light ogham/exa
 
-zinit ice wait"2" lucid from"gh-r" as"program" atclone"./zoxide init zsh > init.zsh;" atpull"%atclone" src"init.zsh"
+zinit ice wait"2" lucid from"gh-r" as"program" atclone"./zoxide init zsh > init.zsh;" atpull"%atclone" src"init.zsh" sbin"zoxide"
 zinit light ajeetdsouza/zoxide
 
+zinit ice as"command" from"gh-r" mv"sd* -> sd" sbin"sd"
+zinit light chmln/sd
+
+zinit ice as"command" from"gh-r" sbin"rg"
+zinit light BurntSushi/ripgrep
+
+zinit ice as"command" from"gh-r" mv"btm* -> btm" sbin"btm"
+zinit light ClementTsang/bottom
 
 zinit ice from"gh-r" as"command" atclone"./starship init zsh > init.zsh; ./starship completions zsh > _sharship" \
-	atpull"%atclone" src"init.zsh"
+	atpull"%atclone" src"init.zsh" sbin"starship"
 zinit light starship/starship
+
+zinit ice from"gh-r" as"command" mv"zellij* -> zellij" sbin"zellij"
+zinit light zellij-org/zellij
 
 zinit snippet OMZ::plugins/git/git.plugin.zsh
 
