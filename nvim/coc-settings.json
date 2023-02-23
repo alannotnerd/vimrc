@@ -6,6 +6,7 @@
   "diagnostic.errorSign": "",
   "suggest.virtualText": true,
   "suggest.formatItems": ["kind", "abbr", "menu"],
+  "python.formatting.provider": "yapf",
   "suggest.completionItemKindLabels": {
     "class": " ",
     "color": " ",

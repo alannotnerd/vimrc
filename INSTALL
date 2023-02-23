@@ -5,25 +5,37 @@ from os import path, listdir, mkdir
 from shutil import which
 from pathlib import Path
 
+
 def path_of(file):
     return path.join(path.dirname(__file__), file)
 
+
 def os_name():
-    out = str(check_output(["hostnamectl"]), encoding="utf-8")
-    if out.find("Arch Linux"):
+    if bin_exists("uname") and str(check_output("uname")) == "DarWin":
+        return "macos"
+
+    if bin_exists("hostnamectl") and str(
+            check_output("hostnamectl")).find("Arch Linux"):
         return "arch"
+
     return "unknown"
+
 
 def install_zsh():
     os = os_name()
     if os == "arch":
         run(["yay", "-Sy", "zsh"])
 
+
 def bin_exists(bin):
-    out = which("zsh")
+    out = which(bin)
     return out
 
-def link(src, target, force=False):
+
+def link(src, target, force=False, os=None):
+    if os and os != os_name():
+        pass
+
     if force or not path.exists(target):
         print(f"Configure {src}")
         Path(path.dirname(target)).mkdir(parents=True, exist_ok=True)
@@ -31,8 +43,18 @@ def link(src, target, force=False):
     else:
         print(f"Skip {src}")
 
-# create nvim symbol link
+
+# create nvim symlinks
 link("nvim", path.expandvars("$HOME/.config/nvim"))
+link("zellij", path.expandvars("$HOME/.config/zellij"))
+
+# create alacritty symlinks
+link("alacritty/alacritty.yml",
+     path.expandvars("$HOME/.config/alacritty/alacritty.yml"))
+link("alacritty/themes", path.expandvars("$HOME/.config/alacritty/themes"))
+link("alacritty/keybindings/macos.yml",
+     path.expandvars("$HOME/.config/alacritty/keybindings.yml"),
+     os="macos")
 
 # create tools symbol link
 tools_path = path_of("tools")
