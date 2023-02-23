@@ -68,3 +68,9 @@ zinit snippet https://raw.githubusercontent.com/lukechilds/zsh-nvm/master/zsh-nv
 
 export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 
+if [[ $(uname) == "Darwin" ]]; then
+  # pnpm
+  export PNPM_HOME="/Users/alanwang/Library/pnpm"
+  export PATH="$PNPM_HOME:$PATH"
+  # pnpm end
+fi
