@@ -40,10 +40,10 @@ zinit ice as"command" from"gh-r" sbin"bat"
 zinit light sharkdp/bat
 
 # ogham/exa, replacement for ls
-zinit ice wait"2" lucid from"gh-r" as"program" mv"bin/exa* -> exa" sbin"exa" atload"alias ls='exa --icons --group-directories-first'"
+zinit ice wait"0" lucid from"gh-r" as"program" mv"bin/exa* -> exa" sbin"exa" atload"alias ls='exa --icons --group-directories-first'"
 zinit light ogham/exa
 
-zinit ice wait"2" lucid from"gh-r" as"program" atclone"./zoxide init zsh > init.zsh;" atpull"%atclone" src"init.zsh" sbin"zoxide"
+zinit ice wait"0" lucid from"gh-r" as"program" atclone"./zoxide init zsh > init.zsh;" atpull"%atclone" src"init.zsh" sbin"zoxide"
 zinit light ajeetdsouza/zoxide
 
 zinit ice as"command" from"gh-r" mv"sd* -> sd" sbin"sd"
@@ -63,6 +63,7 @@ zinit ice from"gh-r" as"command" mv"zellij* -> zellij" sbin"zellij"
 zinit light zellij-org/zellij
 
 zinit snippet OMZ::plugins/git/git.plugin.zsh
+zinit snippet OMZL::history.zsh
 
 zinit snippet https://raw.githubusercontent.com/lukechilds/zsh-nvm/master/zsh-nvm.plugin.zsh
 
