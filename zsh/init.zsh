@@ -13,6 +13,14 @@ source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
+[ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
+[ "$HISTSIZE" -lt 50000 ] && HISTSIZE=50000
+[ "$SAVEHIST" -lt 10000 ] && SAVEHIST=10000
+setopt extended_history       # record timestamp of command in HISTFILE
+setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups       # ignore duplicated commands history list
+setopt hist_ignore_space      # ignore commands that start with space
+
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \
@@ -29,7 +37,8 @@ zinit wait lucid light-mode for \
   atload"_zsh_autosuggest_start" \
       zsh-users/zsh-autosuggestions \
   blockf atpull'zinit creinstall -q .' \
-      zsh-users/zsh-completions
+      zsh-users/zsh-completions \
+      OMZP::git
 
 # sharkdp/fd
 zinit ice as"command" from"gh-r" sbin"fd"
@@ -61,9 +70,6 @@ zinit light starship/starship
 
 zinit ice from"gh-r" as"command" mv"zellij* -> zellij" sbin"zellij"
 zinit light zellij-org/zellij
-
-zinit snippet OMZ::plugins/git/git.plugin.zsh
-zinit snippet OMZL::history.zsh
 
 zinit snippet https://raw.githubusercontent.com/lukechilds/zsh-nvm/master/zsh-nvm.plugin.zsh
 
