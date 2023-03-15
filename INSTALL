@@ -46,6 +46,7 @@ def link(src, target, force=False, os=None):
 
 # create nvim symlinks
 link("nvim", path.expandvars("$HOME/.config/nvim"))
+link("lvim", path.expandvars("$HOME/.config/lvim"))
 link("zellij", path.expandvars("$HOME/.config/zellij"))
 
 # create alacritty symlinks
