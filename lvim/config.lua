@@ -18,7 +18,9 @@ lvim.colorscheme = "lunar"
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+lvim.keys.normal_mode["jk"] = "<C-c>"
+lvim.keys.normal_mode["<C-j>"] = "<C-c>:cn<CR>"
+lvim.keys.normal_mode["<C-k>"] = "<C-c>:cp<CR>"
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- unmap a default keymapping
@@ -29,17 +31,6 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
 -- local _, actions = pcall(require, "telescope.actions")
-lvim.builtin.telescope.defaults.mappings = {
-  -- for input mode
-  i = {
-    ["jk"] = "<C-c>"
-  }
-  -- for normal mode
-  -- n = {
-  --   ["<C-j>"] = actions.move_selection_next,
-  --   ["<C-k>"] = actions.move_selection_previous,
-  -- },
-}
 
 -- Change theme settings
 -- lvim.builtin.theme.options.dim_inactive = true
