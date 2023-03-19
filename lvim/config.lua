@@ -32,8 +32,8 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.builtin.telescope.defaults.mappings = {
   -- for input mode
   i = {
-    ["j", "k"] = "<C-c>",
-  },
+    ["jk"] = "<C-c>"
+  }
   -- for normal mode
   -- n = {
   --   ["<C-j>"] = actions.move_selection_next,
