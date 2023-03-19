@@ -2,7 +2,7 @@
 
 from subprocess import run, check_output
 from os import path, listdir, mkdir
-from shutil import which
+from shutil import which, rmtree
 from pathlib import Path
 
 
@@ -36,7 +36,14 @@ def link(src, target, force=False, os=None):
     if os and os != os_name():
         pass
 
-    if force or not path.exists(target):
+    if force:
+        if Path(target).is_dir():
+            rmtree(target)
+        else:
+            Path(target).unlink()
+
+
+    if not path.exists(target):
         print(f"Configure {src}")
         Path(path.dirname(target)).mkdir(parents=True, exist_ok=True)
         run(["ln", "-s", path_of(src), target])
@@ -46,7 +53,7 @@ def link(src, target, force=False, os=None):
 
 # create nvim symlinks
 link("nvim", path.expandvars("$HOME/.config/nvim"))
-link("lvim", path.expandvars("$HOME/.config/lvim"))
+link("lvim", path.expandvars("$HOME/.config/lvim"), True)
 link("zellij", path.expandvars("$HOME/.config/zellij"))
 
 # create alacritty symlinks
