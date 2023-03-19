@@ -18,7 +18,7 @@ lvim.colorscheme = "lunar"
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
-lvim.keys.normal_mode["jk"] = "<C-c>"
+lvim.keys.insert_mode["jk"] = "<C-c>"
 lvim.keys.normal_mode["<C-j>"] = "<C-c>:cn<CR>"
 lvim.keys.normal_mode["<C-k>"] = "<C-c>:cp<CR>"
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
