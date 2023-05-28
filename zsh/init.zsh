@@ -71,6 +71,9 @@ zinit light starship/starship
 zinit ice from"gh-r" as"command" sbin"zellij"
 zinit light zellij-org/zellij
 
+zinit snippet OMZ::plugins/per-directory-history/per-directory-history.zsh
+zinit snippet OMZ::plugins/dotenv/dotenv.plugin.zsh
+
 zinit snippet https://raw.githubusercontent.com/lukechilds/zsh-nvm/master/zsh-nvm.plugin.zsh
 
 export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
