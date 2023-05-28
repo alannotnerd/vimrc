@@ -38,7 +38,9 @@ zinit wait lucid light-mode for \
       zsh-users/zsh-autosuggestions \
   blockf atpull'zinit creinstall -q .' \
       zsh-users/zsh-completions \
-      OMZP::git
+  OMZP::git \
+  OMZP::dotenv
+
 
 # sharkdp/fd
 zinit ice as"command" from"gh-r" sbin"fd"
@@ -71,10 +73,8 @@ zinit light starship/starship
 zinit ice from"gh-r" as"command" sbin"zellij"
 zinit light zellij-org/zellij
 
-zinit snippet OMZ::plugins/per-directory-history/per-directory-history.zsh
-zinit snippet OMZ::plugins/dotenv/dotenv.plugin.zsh
-
-zinit snippet https://raw.githubusercontent.com/lukechilds/zsh-nvm/master/zsh-nvm.plugin.zsh
+zinit snippet OMZP::per-directory-history/per-directory-history.zsh
+zinit snippet https://github.com/lukechilds/zsh-nvm/blob/master/zsh-nvm.plugin.zsh
 
 export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 
