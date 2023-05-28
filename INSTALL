@@ -37,7 +37,7 @@ def link(src, target, force=False, os=None):
         pass
 
     if force:
-        if Path(target).is_dir():
+        if Path(target).is_dir() and not Path(target).is_symlink():
             rmtree(target)
         else:
             Path(target).unlink()

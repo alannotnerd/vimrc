@@ -61,14 +61,14 @@ zinit light chmln/sd
 zinit ice as"command" from"gh-r" sbin"rg"
 zinit light BurntSushi/ripgrep
 
-zinit ice as"command" from"gh-r" mv"btm* -> btm" sbin"btm"
+zinit ice as"command" from"gh-r" sbin"btm"
 zinit light ClementTsang/bottom
 
 zinit ice from"gh-r" as"command" atclone"./starship init zsh > init.zsh; ./starship completions zsh > _sharship" \
 	atpull"%atclone" src"init.zsh" sbin"starship"
 zinit light starship/starship
 
-zinit ice from"gh-r" as"command" mv"zellij* -> zellij" sbin"zellij"
+zinit ice from"gh-r" as"command" sbin"zellij"
 zinit light zellij-org/zellij
 
 zinit snippet https://raw.githubusercontent.com/lukechilds/zsh-nvm/master/zsh-nvm.plugin.zsh

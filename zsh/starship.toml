@@ -7,6 +7,9 @@
 show_always = true
 disabled = false
 
+[container]
+disabled = true
+
 # An alternative to the username module which displays a symbol that
 # represents the current operating system
 [os]
