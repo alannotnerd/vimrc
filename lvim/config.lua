@@ -148,12 +148,18 @@ lvim.lsp.installer.setup.ensure_installed = {
 
 -- Additional Plugins
 lvim.plugins = {
-    {
-      "j-hui/fidget.nvim",
-      config = function()
-        require("fidget").setup()
-      end
-    },
+  {
+    "j-hui/fidget.nvim",
+    config = function()
+      require("fidget").setup()
+    end
+  },
+  {
+    "kylechui/nvim-surround",
+    config = function ()
+      require("nvim-surround").setup({})
+    end
+  }
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
