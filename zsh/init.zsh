@@ -85,3 +85,5 @@ if [[ $(uname) == "Darwin" ]]; then
   export PATH="$PNPM_HOME:$PATH"
   # pnpm end
 fi
+
+unalias gf
