@@ -39,6 +39,7 @@ zinit wait lucid light-mode for \
       zsh-users/zsh-autosuggestions \
   blockf atpull'zinit creinstall -q .' \
       zsh-users/zsh-completions \
+  atload"unalias gf" \
   OMZP::git \
   OMZP::dotenv
 
@@ -77,7 +78,7 @@ zinit light zellij-org/zellij
 zinit snippet OMZP::per-directory-history/per-directory-history.zsh
 zinit snippet https://github.com/lukechilds/zsh-nvm/blob/master/zsh-nvm.plugin.zsh
 
-export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.yarn/bin:$PATH"
 
 if [[ $(uname) == "Darwin" ]]; then
   # pnpm
@@ -85,5 +86,3 @@ if [[ $(uname) == "Darwin" ]]; then
   export PATH="$PNPM_HOME:$PATH"
   # pnpm end
 fi
-
-unalias gf
