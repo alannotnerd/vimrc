@@ -4,27 +4,30 @@ from subprocess import run, check_output
 from os import path, listdir, mkdir
 from shutil import which, rmtree
 from pathlib import Path
+import platform
 
 
 def path_of(file):
     return path.join(path.dirname(__file__), file)
 
+import platform
 
 def os_name():
-    if bin_exists("uname") and str(check_output("uname")) == "DarWin":
-        return "macos"
+    os_name = platform.system()
 
-    if bin_exists("hostnamectl") and str(
-            check_output("hostnamectl")).find("Arch Linux"):
-        return "arch"
+    if os_name == "Windows":
+        return "Windows"
+    elif os_name == "Darwin":
+        return "macOS"
+    elif os_name == "Linux":
+        # For more specific details on Linux distributions
+        if bin_exists("yay"): 
+            return "arch"
+        else:
+            return "Linux"
+    else:
+        return os_name
 
-    return "unknown"
-
-
-def install_zsh():
-    os = os_name()
-    if os == "arch":
-        run(["yay", "-Sy", "zsh"])
 
 
 def bin_exists(bin):
@@ -50,6 +53,36 @@ def link(src, target, force=False, os=None):
     else:
         print(f"Skip {src}")
 
+def yay(pkg, bin=None):
+    os = os_name()
+    if bin_exists(bin if bin else pkg):
+        return
+    if os == "arch":
+        run(["yay", "-Sy", "--noconfirm", pkg])
+    else:
+        raise f"Please install {pkg} mannualy"
+
+def install_lvim():
+    if bin_exists("lvim"):
+        return
+    if os_name() != "Windows":
+        yay("neovim", "nvim")
+        yay("make")
+        run("LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)", shell=True)
+    else:
+        raise "Please install lvim mannully"
+    
+def install_zsh():
+    os = os_name()
+    if bin_exists("zsh"):
+        return
+    if os == "arch":
+        run(["yay", "-Sy", "--noconfirm", "zsh"])
+    else:
+        raise "Please install zsh mannualy"
+
+install_zsh()
+install_lvim()
 
 # create nvim symlinks
 link("nvim", path.expandvars("$HOME/.config/nvim"))
