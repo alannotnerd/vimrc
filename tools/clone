@@ -10,17 +10,17 @@ parser = OptionParser()
 if len(args) != 1:
    exit(0) 
 
-z = re.match("([\w-]+)(/([\w-]+))?", args[0])
+pattern = r'^((https://github.com/)?(?P<owner>[\w-]+)/)?(?P<repo>[\w-]+)$'
+
+z = re.match(pattern, args[0])
 if not z:
     exit(0)
 
-(owner, _, repo) = z.groups()
-if not repo:
-    repo = owner
-    owner = os.path.basename(os.path.normpath(os.getcwd()))
+owner = z.group("owner") or os.path.basename(os.path.normpath(os.getcwd()))
+repo = z.group("repo")
 
 path = os.path.expanduser("~/repo")
 repo_dir = os.path.join(path, owner, repo)
 subprocess.run(["gh", "repo", "clone", f"{owner}/{repo}", repo_dir])
-
+subprocess.run(["zoxide", "add", repo_dir])
 
