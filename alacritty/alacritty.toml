@@ -1,0 +1,20 @@
+import = [
+  "/Users/alanwang/.config/alacritty/themes/pulp.toml",
+  "/Users/alanwang/.config/alacritty/keybindings.toml",
+]
+
+[font]
+size = 13.0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font Mono"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "Space"
+mode = "~Search"
+mods = "Shift"
+
+[window]
+decorations = "full"
+option_as_alt = "Both"
