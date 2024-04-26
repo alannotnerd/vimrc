@@ -83,6 +83,18 @@ export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.yarn/bin:$PATH"
 if [[ $(uname) == "Darwin" ]]; then
   # pnpm
   export PNPM_HOME="/Users/alanwang/Library/pnpm"
-  export PATH="$PNPM_HOME:$PATH"
+  case ":$PATH:" in
+    *":$PNPM_HOME:"*) ;;
+    *) export PATH="$PNPM_HOME:$PATH" ;;
+  esac
+  # pnpm end
+else
+  # pnpm
+  export PNPM_HOME="/home/alan/.local/share/pnpm"
+  case ":$PATH:" in
+    *":$PNPM_HOME:"*) ;;
+    *) export PATH="$PNPM_HOME:$PATH" ;;
+  esac
   # pnpm end
 fi
+
