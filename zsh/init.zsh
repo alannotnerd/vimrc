@@ -75,6 +75,9 @@ zinit light starship/starship
 zinit ice from"gh-r" as"command" sbin"zellij"
 zinit light zellij-org/zellij
 
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
+
 zinit snippet OMZP::per-directory-history/per-directory-history.zsh
 zinit snippet https://github.com/lukechilds/zsh-nvm/blob/master/zsh-nvm.plugin.zsh
 
