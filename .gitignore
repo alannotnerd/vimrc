@@ -1,6 +1,6 @@
 .DS_store
 
-lazy-lock.json
+nvim/lazy-lock.json
 
 plugged/*
 plugin/
