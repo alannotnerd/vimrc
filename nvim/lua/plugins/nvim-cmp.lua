@@ -48,7 +48,7 @@ return {
       format = function(_, item)
         local icons = require("lazyvim.config").icons.kinds
         item.menu = item.kind
-        item.kind = " " .. (icons[item.kind] or " ") .. " "
+        item.kind = "▌" .. (icons[item.kind] or " ") .. " "
         return item
       end,
     }
