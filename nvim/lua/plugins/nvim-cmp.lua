@@ -31,15 +31,14 @@ return {
       "TypeParameter",
     }
 
-    for _, g in ipairs(groups) do
-      local highlight = vim.api.nvim_get_hl(0, { name = "CmpItemKind" .. g })
-      vim.api.nvim_set_hl(0, "CmpItemKind" .. g, { fg = "#FFFFFF", bg = highlight.fg })
-    end
+    -- for _, g in ipairs(groups) do
+    --   local highlight = vim.api.nvim_get_hl(0, { name = "CmpItemKind" .. g })
+    --   vim.api.nvim_set_hl(0, "CmpItemKind" .. g, { fg = "#FFFFFF", bg = highlight.fg })
+    -- end
 
     opts.window = {
       completion = {
         winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
-        col_offset = -3,
         side_padding = 0,
       },
     }
