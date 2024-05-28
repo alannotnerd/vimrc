@@ -1,44 +1,12 @@
 return {
   "hrsh7th/nvim-cmp",
   opts = function(_, opts)
-    local groups = {
-      "",
-      "Copilot",
-      "Field",
-      "Property",
-      "Event",
-      "Text",
-      "Enum",
-      "Keyword",
-      "Constant",
-      "Constructor",
-      "Reference",
-      "Function",
-      "Struct",
-      "Class",
-      "Module",
-      "Operator",
-      "Variable",
-      "File",
-      "Unit",
-      "Snippet",
-      "Folder",
-      "Method",
-      "Value",
-      "EnumMember",
-      "Interface",
-      "Color",
-      "TypeParameter",
+    opts.view = {
+      entries = { name = "custom", selection_order = "near_cursor" },
     }
-
-    -- for _, g in ipairs(groups) do
-    --   local highlight = vim.api.nvim_get_hl(0, { name = "CmpItemKind" .. g })
-    --   vim.api.nvim_set_hl(0, "CmpItemKind" .. g, { fg = "#FFFFFF", bg = highlight.fg })
-    -- end
 
     opts.window = {
       completion = {
-        winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
         side_padding = 0,
       },
     }
