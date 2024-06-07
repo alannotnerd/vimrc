@@ -15,7 +15,7 @@ return {
       fields = { "kind", "abbr", "menu" },
       format = function(_, item)
         local icons = require("lazyvim.config").icons.kinds
-        item.menu = item.kind
+        item.menu = item.kind .. " " .. (item.menu or "")
         item.kind = "▌" .. (icons[item.kind] or " ") .. " "
         return item
       end,
