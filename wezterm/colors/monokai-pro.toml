@@ -1,0 +1,32 @@
+# Default colors
+[colors]
+ansi = [
+  "#2d2a2e",
+  "#ff6188",
+  "#a9dc76",
+  "#ffd866",
+  "#6699df",
+  "#ab9df2",
+  "#78dce8",
+  "#fcfcfa",
+]
+
+brights = [
+  "#676568",
+  "#ff6188",
+  "#a9dc76",
+  "#ffd866",
+  "#6699df",
+  "#ab9df2",
+  "#78dce8",
+  "#fcfcfa",
+]
+background = "#2d2a2e"
+foreground = "#ffffff"
+
+[colors.indexed]
+
+[metadata]
+aliases = ["monokai-pro"]
+author = ""
+name = "Monokai Pro"
