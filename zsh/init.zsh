@@ -56,6 +56,9 @@ zinit light sharkdp/bat
 zinit ice wait"0" lucid from"gh-r" as"program" mv"bin/exa* -> exa" sbin"exa" atload"alias ls='exa --icons --group-directories-first'"
 zinit light ogham/exa
 
+zinit ice wait"0" lucid from"gh-r" as"program" ver"v13.0.0-alpha.0" sbin"tokei"
+zinit light XAMPPRocky/tokei
+
 zinit ice wait"0" lucid from"gh-r" as"program" atclone"./zoxide init zsh > init.zsh;" atpull"%atclone" src"init.zsh" sbin"zoxide"
 zinit light ajeetdsouza/zoxide
 
