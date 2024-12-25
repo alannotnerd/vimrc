@@ -84,7 +84,7 @@ zinit light jeffreytse/zsh-vi-mode
 zinit snippet OMZP::per-directory-history/per-directory-history.zsh
 zinit snippet https://github.com/lukechilds/zsh-nvm/blob/master/zsh-nvm.plugin.zsh
 
-export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.yarn/bin:$PATH"
+export PATH="$HOME/.local/share/solana/install/active_release/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.yarn/bin:$HOME/.ghcup/bin:$PATH"
 
 if [[ $(uname) == "Darwin" ]]; then
   # pnpm
