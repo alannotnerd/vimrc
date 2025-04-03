@@ -53,7 +53,7 @@ zinit ice as"command" from"gh-r" sbin"bat"
 zinit light sharkdp/bat
 
 # ogham/exa, replacement for ls
-zinit ice wait"0" lucid from"gh-r" as"program" mv"bin/exa* -> exa" sbin"exa" atload"alias ls='exa --icons --group-directories-first'"
+zinit ice wait"0" lucid from"gh-r" as"program" bpick"*linux*x86_64*" mv"bin/exa* -> exa" sbin"exa" atload"alias ls='exa --icons --group-directories-first'"
 zinit light ogham/exa
 
 zinit ice wait"0" lucid from"gh-r" as"program" ver"v13.0.0-alpha.0" sbin"tokei"

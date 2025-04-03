@@ -26,7 +26,12 @@ def os_name():
         if bin_exists("yay"):
             return "arch"
         else:
-            return "Linux"
+            try:  
+                with open("/etc/os-release") as f:  
+                    os_release = f.read().lower()  
+                    return "ubuntu" in os_release  
+            except:  
+                return "linux" 
     else:
         return os_name
 
@@ -47,7 +52,7 @@ def link(src, target, force=False, os=None):
             Path(target).unlink()
 
     if not path.exists(target):
-        print(f"Configure {src}")
+        print(f"Configure {src} -> {target}")
         Path(path.dirname(target)).mkdir(parents=True, exist_ok=True)
         run(["ln", "-s", path_of(src), target])
     else:
@@ -64,25 +69,14 @@ def yay(pkg, bin=None):
         raise f"Please install {pkg} mannualy"
 
 
-def install_lvim():
-    if bin_exists("lvim"):
-        return
-    if os_name() != "Windows":
-        yay("neovim", "nvim")
-        yay("make")
-        run(
-            "LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)",
-            shell=True,
-        )
-    else:
-        raise "Please install lvim mannully"
-
-
 def install_unzip():
+    os = os_name()
     if bin_exists("unzip"):
         return
-    if os_name() != "Windows":
+    if os == "Windows":
         yay("unzip")
+    elif os == "ubuntu":
+        run(["sudo", "apt", "install", "-y", "unzip"])
     else:
         raise "Please install lvim mannully"
 
@@ -93,12 +87,36 @@ def install_zsh():
         return
     if os == "arch":
         run(["yay", "-Sy", "--noconfirm", "zsh"])
+    elif os == "ubuntu":
+        run(["sudo", "apt", "install", "-y", "zsh"])
+    else:
+        raise "Please install zsh mannualy"
+
+def install_nvim():
+    os = os_name()
+    if bin_exists("nvim"):
+        return
+    if os == "arch":
+        run(["yay", "-Sy", "--noconfirm", "neovim"])
+    elif os == "ubuntu":
+        run(["sudo", "add-apt-repository", "ppa:neovim-ppa/unstable"])
+        run(["sudo", "apt", "install", "-y", "neovim"])
+    else:
+        raise "Please install zsh mannualy"
+
+def install_cc():
+    os = os_name()
+    if bin_exists("cc"):
+        return
+    if os == "arch":
+        run(["yay", "-Sy", "--noconfirm", "clang"])
+    elif os == "ubuntu":
+        run(["sudo", "apt", "install", "-y", "clang"])
     else:
         raise "Please install zsh mannualy"
 
 
 install_zsh()
-install_lvim()
 
 # create nvim symlinks
 link("nvim", path.expandvars("$HOME/.config/nvim"))
@@ -109,12 +127,12 @@ link("wezterm", path.expandvars("$HOME/.config/wezterm"))
 
 # create alacritty symlinks
 link(
-    "alacritty/alacritty.yml", path.expandvars("$HOME/.config/alacritty/alacritty.yml")
+    "alacritty/alacritty.toml", path.expandvars("$HOME/.config/alacritty/alacritty.toml")
 )
 link("alacritty/themes", path.expandvars("$HOME/.config/alacritty/themes"))
 link(
-    "alacritty/keybindings/macos.yml",
-    path.expandvars("$HOME/.config/alacritty/keybindings.yml"),
+    "alacritty/keybindings/macos.toml",
+    path.expandvars("$HOME/.config/alacritty/keybindings.toml"),
     os="macos",
 )
 
