@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-from subprocess import run, check_output
-from os import path, listdir, mkdir
+from subprocess import run
+from os import path, listdir
 from shutil import which, rmtree
 from pathlib import Path
 import platform
@@ -10,9 +10,6 @@ from sys import exit, stderr
 
 def path_of(file):
     return path.join(path.dirname(__file__), file)
-
-
-import platform
 
 
 def os_name():
@@ -29,12 +26,12 @@ def os_name():
         if bin_exists("apt"):
             return "ubuntu"
         else:
-            try:  
-                with open("/etc/os-release") as f:  
-                    os_release = f.read().lower()  
-                    return "ubuntu" in os_release  
-            except:  
-                return "linux" 
+            try:
+                with open("/etc/os-release") as f:
+                    os_release = f.read().lower()
+                    return "ubuntu" in os_release
+            except:
+                return "linux"
     else:
         return os_name
 
@@ -69,7 +66,7 @@ def yay(pkg, bin=None):
     if os == "arch":
         run(["yay", "-Sy", "--noconfirm", pkg])
     else:
-        print(f"Please install {pkg} mannually", file=stderr)
+        print(f"Please install {pkg} manually", file=stderr)
         exit(1)
 
 
@@ -82,7 +79,7 @@ def install_unzip():
     elif os == "ubuntu":
         run(["sudo", "apt", "install", "-y", "unzip"])
     else:
-        print("Please install unzip mannually", file=stderr)
+        print("Please install unzip manually", file=stderr)
         exit(1)
 
 
@@ -95,8 +92,9 @@ def install_zsh():
     elif os == "ubuntu":
         run(["sudo", "apt", "install", "-y", "zsh"])
     else:
-        print("Please install zsh mannually", file=stderr)
+        print("Please install zsh manually", file=stderr)
         exit(1)
+
 
 def install_nvim():
     os = os_name()
@@ -108,8 +106,9 @@ def install_nvim():
         run(["sudo", "add-apt-repository", "ppa:neovim-ppa/unstable"])
         run(["sudo", "apt", "install", "-y", "neovim"])
     else:
-        print("Please install neovim mannually", file=stderr)
+        print("Please install neovim manually", file=stderr)
         exit(1)
+
 
 def install_cc():
     os = os_name()
@@ -120,11 +119,14 @@ def install_cc():
     elif os == "ubuntu":
         run(["sudo", "apt", "install", "-y", "clang"])
     else:
-        print("Please install clang mannually", file=stderr)
+        print("Please install clang manually", file=stderr)
         exit(1)
 
 
 install_zsh()
+install_cc()
+install_nvim()
+install_unzip()
 
 # create nvim symlinks
 link("nvim", path.expandvars("$HOME/.config/nvim"))
@@ -135,7 +137,8 @@ link("wezterm", path.expandvars("$HOME/.config/wezterm"))
 
 # create alacritty symlinks
 link(
-    "alacritty/alacritty.toml", path.expandvars("$HOME/.config/alacritty/alacritty.toml")
+    "alacritty/alacritty.toml",
+    path.expandvars("$HOME/.config/alacritty/alacritty.toml"),
 )
 link("alacritty/themes", path.expandvars("$HOME/.config/alacritty/themes"))
 link(
