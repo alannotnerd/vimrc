@@ -3,22 +3,28 @@ return {
   event = "VeryLazy",
   lazy = false,
   version = false,
+  build = "make",
   opts = {
-    provider = "copilot",
-    mappings = {
-      diff = {},
+    provider = "deepseek",
+    behaviour = {
+      auth_suggestions = true,
+    },
+    providers = {
+      deepseek = {
+        __inherited_from = "openai",
+        api_key_name = "DEEPSEEK_API_KEY",
+        endpoint = "https://api.deepseek.com",
+        model = "deepseek-coder",
+        max_tokens = 8192,
+      },
     },
   },
-  build = "make",
-
   dependencies = {
-    "stevearc/dressing.nvim",
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
 
     "hrsh7th/nvim-cmp",
     "nvim-tree/nvim-web-devicons",
-    "zbirenbaum/copilot.lua",
     {
 
       "HakonHarnes/img-clip.nvim",
