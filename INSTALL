@@ -74,12 +74,24 @@ def install_unzip():
     os = os_name()
     if bin_exists("unzip"):
         return
-    if os == "Windows":
+    if os == "arch":
         yay("unzip")
     elif os == "ubuntu":
         run(["sudo", "apt", "install", "-y", "unzip"])
     else:
         print("Please install unzip manually", file=stderr)
+        exit(1)
+
+def install_make():
+    os = os_name()
+    if bin_exists("make"):
+        return
+    if os == "arch":
+        yay("make")
+    elif os == "ubuntu":
+        run(["sudo", "apt", "install", "-y", "make"])
+    else:
+        print("Please install make manually", file=stderr)
         exit(1)
 
 
@@ -127,6 +139,7 @@ install_zsh()
 install_cc()
 install_nvim()
 install_unzip()
+install_make()
 
 # create nvim symlinks
 link("nvim", path.expandvars("$HOME/.config/nvim"))
