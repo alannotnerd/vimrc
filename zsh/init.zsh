@@ -74,6 +74,9 @@ zinit light ClementTsang/bottom
 zinit ice wait"0" lucid from"gh-r" as"program" atclone"./fnm env > init.zsh" atpull"%atclone" src"init.zsh" sbin"fnm"
 zinit light Schniz/fnm
 
+zinit ice as"command" from"gh-r" sbin"uv"
+zinit light astral-sh/uv
+
 zinit ice from"gh-r" as"command" atclone"./starship init zsh > init.zsh; ./starship completions zsh > _sharship" \
 	atpull"%atclone" src"init.zsh" sbin"starship"
 zinit light starship/starship
