@@ -53,7 +53,7 @@ zinit ice as"command" from"gh-r" sbin"bat"
 zinit light sharkdp/bat
 
 # ogham/exa, replacement for ls
-zinit ice wait"0" lucid from"gh-r" as"program" bpick"*linux*x86_64*" mv"bin/exa* -> exa" sbin"exa" atload"alias ls='exa --icons --group-directories-first'"
+zinit ice wait"0" lucid from"gh-r" as"program" mv"bin/exa* -> exa" sbin"exa" atload"alias ls='exa --icons --group-directories-first'"
 zinit light ogham/exa
 
 zinit ice wait"0" lucid from"gh-r" as"program" ver"v13.0.0-alpha.0" sbin"tokei"
@@ -88,6 +88,8 @@ zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
 
 zinit snippet OMZP::per-directory-history/per-directory-history.zsh
+bindkey '^K' history-search-backward
+bindkey '^J' history-search-forward
 
 export PATH="$HOME/.foundry/bin:$HOME/.local/share/solana/install/active_release/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.yarn/bin:$HOME/.ghcup/bin:$PATH"
 export EDITOR=nvim
