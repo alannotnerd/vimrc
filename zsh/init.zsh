@@ -89,7 +89,6 @@ zinit light jeffreytse/zsh-vi-mode
 
 zinit snippet OMZP::per-directory-history/per-directory-history.zsh
 
-export DEEPSEEK_API_KEY=sk-9a56dc5697e248348ca809b12b64cc6c
 export PATH="$HOME/.foundry/bin:$HOME/.local/share/solana/install/active_release/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.yarn/bin:$HOME/.ghcup/bin:$PATH"
 export EDITOR=nvim
 
@@ -110,6 +109,3 @@ else
   esac
   # pnpm end
 fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
