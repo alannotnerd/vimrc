@@ -87,9 +87,12 @@ zinit light zellij-org/zellij
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
 
+zinit ice wait lucid \
+  atload"
+    bindkey '^[[A' up-line-or-search
+    bindkey '^[[B' down-line-or-search
+  "
 zinit snippet OMZP::per-directory-history/per-directory-history.zsh
-bindkey '^K' history-search-backward
-bindkey '^J' history-search-forward
 
 export PATH="$HOME/.foundry/bin:$HOME/.local/share/solana/install/active_release/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.yarn/bin:$HOME/.ghcup/bin:$PATH"
 export EDITOR=nvim
