@@ -71,7 +71,7 @@ zinit light BurntSushi/ripgrep
 zinit ice as"command" from"gh-r" sbin"btm"
 zinit light ClementTsang/bottom
 
-zinit ice wait"0" lucid from"gh-r" as"program" atclone"./fnm env > init.zsh" atpull"%atclone" src"init.zsh" sbin"fnm"
+zinit ice from"gh-r" as"program" atpull"%atclone" atload'eval "$(fnm env --use-on-cd)"' sbin"fnm"
 zinit light Schniz/fnm
 
 zinit ice as"command" from"gh-r" sbin"uv"
