@@ -96,6 +96,9 @@ zinit snippet OMZP::per-directory-history/per-directory-history.zsh
 
 export PATH="$HOME/.foundry/bin:$HOME/.local/share/solana/install/active_release/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.yarn/bin:$HOME/.ghcup/bin:$PATH"
 export EDITOR=nvim
+if [[ -f ~/.zshenv ]]; then
+  source ~/.zshenv
+fi
 
 if [[ $(uname) == "Darwin" ]]; then
   # pnpm
